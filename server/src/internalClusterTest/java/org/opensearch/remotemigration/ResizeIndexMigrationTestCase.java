@@ -77,24 +77,20 @@ public class ResizeIndexMigrationTestCase extends MigrationBaseTestCase {
         assertAcked(internalCluster().client().admin().cluster().updateSettings(updateSettingsRequest).actionGet());
 
         ResizeType resizeType;
-        int resizeShardsNum;
-        String cause;
-        switch (randomIntBetween(0, 2)) {
-            case 0:
+        int resizeShardsNum = switch (randomIntBetween(0, 2)) {
+            case 0 -> {
                 resizeType = ResizeType.SHRINK;
-                resizeShardsNum = 5;
-                cause = "shrink_index";
-                break;
-            case 1:
+                yield 5;
+            }
+            case 1 -> {
                 resizeType = ResizeType.SPLIT;
-                resizeShardsNum = 20;
-                cause = "split_index";
-                break;
-            default:
+                yield 20;
+            }
+            default -> {
                 resizeType = ResizeType.CLONE;
-                resizeShardsNum = 10;
-                cause = "clone_index";
-        }
+                yield 10;
+            }
+        };
 
         internalCluster().client()
             .admin()
@@ -171,24 +167,20 @@ public class ResizeIndexMigrationTestCase extends MigrationBaseTestCase {
         assertAcked(internalCluster().client().admin().cluster().updateSettings(updateSettingsRequest).actionGet());
 
         ResizeType resizeType;
-        int resizeShardsNum;
-        String cause;
-        switch (randomIntBetween(0, 2)) {
-            case 0:
+        int resizeShardsNum = switch (randomIntBetween(0, 2)) {
+            case 0 -> {
                 resizeType = ResizeType.SHRINK;
-                resizeShardsNum = 5;
-                cause = "shrink_index";
-                break;
-            case 1:
+                yield 5;
+            }
+            case 1 -> {
                 resizeType = ResizeType.SPLIT;
-                resizeShardsNum = 20;
-                cause = "split_index";
-                break;
-            default:
+                yield 20;
+            }
+            default -> {
                 resizeType = ResizeType.CLONE;
-                resizeShardsNum = 10;
-                cause = "clone_index";
-        }
+                yield 10;
+            }
+        };
 
         internalCluster().client()
             .admin()
