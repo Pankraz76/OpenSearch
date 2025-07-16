@@ -81,8 +81,7 @@ allprojects {
         spotlessJavaCheck {
           dependsOn(check)
         }
-      }
-      if (getenv("dogFoodDev")) {
+      } else {
         spotlessJavaApply {
           dependsOn(assemble)
         }

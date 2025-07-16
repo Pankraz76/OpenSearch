@@ -57,8 +57,7 @@ allprojects {
           rewriteDryRun {
             dependsOn(check)
           }
-        }
-        if (getenv("dogFoodDev")) {
+        } else {
           rewriteRun {
             dependsOn(assemble)
           }
