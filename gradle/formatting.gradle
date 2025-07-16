@@ -85,6 +85,7 @@ allprojects {
       precommit.dependsOn 'spotlessJavaCheck'
       tasks {
         if (!getenv("dogFoodDev")) {
+//        if (!getenv("dogFoodDev") && getenv("dogFoodCloud")) {
           spotlessJavaCheck {
             dependsOn(check)
           }
