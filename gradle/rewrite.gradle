@@ -30,6 +30,8 @@
 
 import org.opensearch.gradle.BuildPlugin
 
+import static java.lang.System.getenv
+
 allprojects {
   plugins.withType(BuildPlugin).whenPluginAdded {
     project.apply plugin: "org.openrewrite.rewrite"
@@ -49,19 +51,17 @@ allprojects {
       rewrite("org.openrewrite.recipe:rewrite-rewrite:0.9.0")
       rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.12.0")
     }
-    if (System.getenv("rewriteDogFoodCloud")) {
-      tasks {
-        rewriteDryRun {
-          dependsOn(check)
+    tasks {
+        if (!getenv("rewriteDogFoodDev")) {
+          rewriteDryRun {
+            dependsOn(check)
+          }
         }
-      }
-    }
-    if (System.getenv("rewriteDogFoodDev")) {
-      tasks {
-        rewriteRun {
-          dependsOn(assemble)
+        if (getenv("rewriteDogFoodDev")) {
+          rewriteRun {
+            dependsOn(assemble)
+          }
         }
-      }
     }
   }
 }

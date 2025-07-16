@@ -30,6 +30,9 @@
 
 import org.opensearch.gradle.BuildPlugin
 
+import static java.lang.System.getenv
+import static java.lang.System.getenv
+
 /*
  * This script plugin configures formatting for Java source using Spotless
  * for Gradle. Since the act of formatting existing source can interfere
@@ -106,5 +109,17 @@ allprojects {
       }
 
       precommit.dependsOn 'spotlessJavaCheck'
+      tasks {
+        if (!getenv("spotlessDogFoodDev")) {
+          spotlessJavaCheck {
+            dependsOn(check)
+          }
+        }
+        if (getenv("spotlessDogFoodDev")) {
+          rewriteRun {
+            dependsOn(spotlessJavaApply)
+          }
+        }
+      }
   }
 }
