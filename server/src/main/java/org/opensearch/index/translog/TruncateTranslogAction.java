@@ -227,7 +227,6 @@ public class TruncateTranslogAction {
             ) {
                 // noinspection StatementWithEmptyBody we are just checking that we can iterate through the whole snapshot
                 while (snapshot.next() != null) {
-                    continue;
                 }
             }
             return true;

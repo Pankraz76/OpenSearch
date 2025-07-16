@@ -790,7 +790,6 @@ public final class AnalysisRegistry implements Closeable {
         try (TokenStream ts = analyzer.tokenStream("", "")) {
             ts.reset();
             while (ts.incrementToken()) {
-                continue;
             }
             ts.end();
         } catch (IOException e) {

@@ -9,9 +9,8 @@ recipeList:
   - org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods
 #  - org.openrewrite.staticanalysis.EmptyBlock
 #  - org.openrewrite.java.OrderImports
-#  - org.openrewrite.java.migrate.UpgradeToJava17
-#  - org.openrewrite.gradle.GradleBestPractices
 #  - org.openrewrite.java.format.RemoveTrailingWhitespace
+#  - org.openrewrite.staticanalysis.EmptyBlock
 #  - org.openrewrite.staticanalysis.RemoveCallsToSystemGc
 #  - org.openrewrite.staticanalysis.UnnecessaryThrows
 #  - org.openrewrite.text.EndOfLineAtEndOfFile

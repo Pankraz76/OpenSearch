@@ -43,7 +43,6 @@ allprojects {
       exclusions.add("**/simple-msearch5.json")
       exclusions.add("**AbstractBenchmark.java")
       exclusions.add("**ScriptClassPathResolutionContext.java")
-      exclusions.add("**ResizeIndexMigrationTestCase.java")
       exclusions.add("**StarTreeMapper.java")
       exclusions.add("**SearchAfterIT.java")
       failOnDryRunResults = true
@@ -52,7 +51,6 @@ allprojects {
       mavenCentral()
     }
     dependencies {
-//      rewrite("org.openrewrite.recipe:rewrite-migrate-java:3.13.0")
       rewrite("org.openrewrite.recipe:rewrite-rewrite:0.9.0")
       rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.12.0")
     }

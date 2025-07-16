@@ -863,7 +863,8 @@ public class RemoteStoreRefreshListenerTests extends IndexShardTestCase {
                 if (!RemoteStoreRefreshListener.EXCLUDE_FILES.contains(file)) {
                     assertTrue(uploadedSegments.containsKey(file));
                 }
-                file.startsWith(IndexFileNames.SEGMENTS);
+                if (file.startsWith(IndexFileNames.SEGMENTS)) {
+                }
             }
         }
         assertTrue(remoteStoreRefreshListener.isRemoteSegmentStoreInSync());

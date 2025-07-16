@@ -701,7 +701,6 @@ public abstract class LocalTimeOffset {
         Iterator<ZoneOffsetTransition> itr = rules.getTransitions().iterator();
         // Skip all transitions that are before our start time
         while (itr.hasNext() && (t = itr.next()).toEpochSecond() < minSecond) {
-            continue;
         }
         if (false == itr.hasNext()) {
             if (minSecond < t.toEpochSecond() && t.toEpochSecond() < maxSecond) {

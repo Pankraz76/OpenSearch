@@ -470,7 +470,6 @@ public final class TermVectorsFields extends Fields {
         @Override
         public int advance(int target) throws IOException {
             while (nextDoc() < target && doc != NO_MORE_DOCS) {
-                continue;
             }
             return doc;
         }
