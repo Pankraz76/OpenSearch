@@ -39,6 +39,8 @@ allprojects {
       activeRecipe("org.opensearch.openrewrite.recipe.CodeCleanup")
       configFile = file("$rootDir/gradle/code-convention.yml")
       exclusions.add("**OpenSearchTestCaseTests.java")
+      exclusions.add("**/simple-bulk11.json")
+      exclusions.add("**/simple-msearch5.json")
       exclusions.add("**AbstractBenchmark.java")
       exclusions.add("**ScriptClassPathResolutionContext.java")
       exclusions.add("**StarTreeMapper.java")
