@@ -52,15 +52,13 @@ allprojects {
       rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.12.0")
     }
     tasks {
-        if (!getenv("dogFoodDev")) {
-//        if (!getenv("dogFoodDev") && getenv("dogFoodCloud")) {
-          rewriteDryRun {
-            dependsOn(check)
-          }
-        } else {
+        if (getenv("dogFoodDev") && !getenv("dogFoodCloud")) {
           rewriteRun {
             dependsOn(assemble)
           }
+        }
+        rewriteDryRun {
+          dependsOn(check)
         }
     }
   }
