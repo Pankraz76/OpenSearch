@@ -69,7 +69,6 @@ public class ResizeIndexMigrationTestCase extends MigrationBaseTestCase {
 
         // add a remote node
         addRemote = true;
-        String remoteNodeName = internalCluster().startDataOnlyNode();
         internalCluster().validateClusterFormed();
 
         // set remote store migration direction
@@ -159,7 +158,6 @@ public class ResizeIndexMigrationTestCase extends MigrationBaseTestCase {
 
         // add a non-remote node
         addRemote = false;
-        String nonRemoteNodeName = internalCluster().startDataOnlyNode();
         internalCluster().validateClusterFormed();
 
         // set docrep migration direction
