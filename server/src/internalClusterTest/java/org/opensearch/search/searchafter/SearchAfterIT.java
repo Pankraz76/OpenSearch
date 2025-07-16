@@ -398,28 +398,4 @@ public class SearchAfterIT extends ParameterizedStaticSettingsOpenSearchIntegTes
         indexRequestBuilder.setMapping(mappings.toArray(new String[0])).get();
         ensureGreen();
     }
-
-    // Convert Integer, Short, Byte and Boolean to Int in order to match the conversion done
-    // by the internal hits when populating the sort values.
-    private List<Object> convertSortValues(List<Object> sortValues) {
-        List<Object> converted = new ArrayList<>();
-        for (int i = 0; i < sortValues.size(); i++) {
-            Object from = sortValues.get(i);
-            if (from instanceof Short) {
-                converted.add(((Short) from).intValue());
-            } else if (from instanceof Byte) {
-                converted.add(((Byte) from).intValue());
-            } else if (from instanceof Boolean) {
-                boolean b = (boolean) from;
-                if (b) {
-                    converted.add(1);
-                } else {
-                    converted.add(0);
-                }
-            } else {
-                converted.add(from);
-            }
-        }
-        return converted;
-    }
 }
