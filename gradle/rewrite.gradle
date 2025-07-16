@@ -30,22 +30,6 @@
 
 import org.opensearch.gradle.BuildPlugin
 
-/**
- * #  - org.openrewrite.staticanalysis.ModifierOrder
- #
- #  - org.openrewrite.java.format.RemoveTrailingWhitespace
- #  - org.openrewrite.java.recipes.JavaRecipeBestPractices
- #  - org.openrewrite.java.recipes.RecipeNullabilityBestPractices
- #  - org.openrewrite.java.recipes.RecipeTestingBestPractices
- #  - org.openrewrite.staticanalysis.EqualsAvoidsNull
- #  - org.openrewrite.staticanalysis.JavaApiBestPractices
- #  - org.openrewrite.staticanalysis.MissingOverrideAnnotation
- #  - org.openrewrite.staticanalysis.RemoveUnusedLocalVariables
- #  - org.openrewrite.staticanalysis.RemoveUnusedPrivateFields
- #  - org.openrewrite.staticanalysis.StringLiteralEquality
- #  - org.openrewrite.staticanalysis.WrappingAndBraces
- #  - org.openrewrite.text.EndOfLineAtEndOfFile
- */
 allprojects {
   plugins.withType(BuildPlugin).whenPluginAdded {
     project.apply plugin: "org.openrewrite.rewrite"
