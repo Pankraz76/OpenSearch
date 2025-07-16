@@ -43,6 +43,7 @@ allprojects {
       exclusions.add("**/simple-msearch5.json")
       exclusions.add("**AbstractBenchmark.java")
       exclusions.add("**ScriptClassPathResolutionContext.java")
+      exclusions.add("**ResizeIndexMigrationTestCase.java")
       exclusions.add("**StarTreeMapper.java")
       exclusions.add("**SearchAfterIT.java")
       failOnDryRunResults = true
