@@ -85,13 +85,10 @@ allprojects {
         'org.ow2.asm:asm:9.8',
         'org.ow2.asm:asm-util:9.8',
       )
-
-      // Prefer newer versions for Jackson modules
       eachDependency { details ->
         if (details.requested.group.startsWith('com.fasterxml.jackson')) {
           details.useVersion '2.17.3'
         }
-        // Add these additional rules if needed
         if (details.requested.group == 'org.openrewrite.recipe' &&
           details.requested.name == 'rewrite-java-dependencies') {
           details.useVersion '1.37.0'
