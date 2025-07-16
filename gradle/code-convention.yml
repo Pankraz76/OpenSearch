@@ -6,6 +6,7 @@ recipeList:
   - org.openrewrite.java.RemoveUnusedImports
   - org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods
   - org.openrewrite.text.EndOfLineAtEndOfFile
+  - org.openrewrite.java.OrderImports
 #  - org.openrewrite.java.format.RemoveTrailingWhitespace
 #  - org.openrewrite.staticanalysis.EmptyBlock
 #  - org.openrewrite.staticanalysis.RemoveCallsToSystemGc
