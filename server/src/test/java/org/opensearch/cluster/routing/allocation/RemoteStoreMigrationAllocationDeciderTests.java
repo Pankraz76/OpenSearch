@@ -583,6 +583,10 @@ public class RemoteStoreMigrationAllocationDeciderTests extends OpenSearchAlloca
         return builder.build();
     }
 
+    private String getRandomCompatibilityMode() {
+        return randomFrom(RemoteStoreNodeService.CompatibilityMode.STRICT.mode, RemoteStoreNodeService.CompatibilityMode.MIXED.mode);
+    }
+
     private ClusterSettings getClusterSettings(Settings settings) {
         return new ClusterSettings(settings, ClusterSettings.BUILT_IN_CLUSTER_SETTINGS);
     }

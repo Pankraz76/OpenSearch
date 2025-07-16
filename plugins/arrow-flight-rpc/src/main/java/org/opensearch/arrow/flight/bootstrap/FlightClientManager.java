@@ -35,6 +35,7 @@ import org.opensearch.transport.client.Client;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
@@ -244,6 +245,10 @@ public class FlightClientManager implements ClusterStateListener, AutoCloseable 
 
     private static boolean isValidNode(DiscoveryNode node) {
         return node != null && !node.getVersion().before(MIN_SUPPORTED_VERSION) && FeatureFlags.isEnabled(ARROW_STREAMS_SETTING);
+    }
+
+    private Set<String> getCurrentClusterNodes() {
+        return Objects.requireNonNull(clientConfig.clusterService).state().nodes().getNodes().keySet();
     }
 
     @VisibleForTesting

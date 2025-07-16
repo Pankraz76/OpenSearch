@@ -16,6 +16,8 @@ import org.junit.Before;
 
 import java.nio.file.Path;
 
+import static org.opensearch.remotestore.RemoteStoreBaseIntegTestCase.remoteStoreClusterSettings;
+
 /**
  * This class executes the SegmentReplicationPressureIT suite with remote store integration enabled.
  */

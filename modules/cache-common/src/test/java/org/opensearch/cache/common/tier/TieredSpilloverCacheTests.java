@@ -2605,6 +2605,17 @@ public class TieredSpilloverCacheTests extends OpenSearchTestCase {
         int diskCacheSize,
         RemovalListener<ICacheKey<String>, String> removalListener,
         Settings settings,
+        long diskDeliberateDelay
+
+    ) {
+        return initializeTieredSpilloverCache(keyValueSize, diskCacheSize, removalListener, settings, diskDeliberateDelay, null, 256);
+    }
+
+    private TieredSpilloverCache<String, String> initializeTieredSpilloverCache(
+        int keyValueSize,
+        int diskCacheSize,
+        RemovalListener<ICacheKey<String>, String> removalListener,
+        Settings settings,
         long diskDeliberateDelay,
         int numberOfSegments
 
