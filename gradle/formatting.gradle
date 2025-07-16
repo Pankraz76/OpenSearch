@@ -31,32 +31,6 @@
 import org.opensearch.gradle.BuildPlugin
 
 import static java.lang.System.getenv
-import static java.lang.System.getenv
-
-/*
- * This script plugin configures formatting for Java source using Spotless
- * for Gradle. Since the act of formatting existing source can interfere
- * with developers' workflows, we don't automatically format all code
- * (yet). Instead, we maintain a list of projects that are excluded from
- * formatting, until we reach a point where we can comfortably format them
- * in one go without too much disruption.
- *
- * Any new sub-projects must not be added to the exclusions list!
- *
- * To perform a reformat, run:
- *
- *     ./gradlew spotlessApply
- *
- * To check the current format, run:
- *
- *     ./gradlew spotlessJavaCheck
- *
- * This is also carried out by the `precommit` task.
- *
- * For more about Spotless, see:
- *
- * https://github.com/diffplug/spotless/tree/master/plugin-gradle
- */
 
 allprojects {
   plugins.withType(BuildPlugin).whenPluginAdded {
