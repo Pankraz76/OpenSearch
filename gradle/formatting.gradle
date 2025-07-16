@@ -116,8 +116,8 @@ allprojects {
           }
         }
         if (getenv("spotlessDogFoodDev")) {
-          rewriteRun {
-            dependsOn(spotlessJavaApply)
+          spotlessJavaApply {
+            dependsOn(assemble)
           }
         }
       }
