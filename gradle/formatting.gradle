@@ -65,7 +65,6 @@ allprojects {
           // non-standard places
           target '**/*.java'
 
-          removeUnusedImports()
           importOrder(
               'de.thetaphi',
               'com.carrotsearch',
@@ -83,7 +82,6 @@ allprojects {
           )
 
           eclipse().withP2Mirrors(Map.of("https://download.eclipse.org/", "https://mirror.umd.edu/eclipse/")).configFile rootProject.file('buildSrc/formatterConfig.xml')
-          trimTrailingWhitespace()
           endWithNewline()
 
           custom 'Refuse wildcard imports', {
@@ -103,7 +101,6 @@ allprojects {
 
             targetExclude '**/simple-bulk11.json', '**/simple-msearch5.json'
 
-            trimTrailingWhitespace()
             endWithNewline()
         }
       }
