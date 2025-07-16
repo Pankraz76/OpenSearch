@@ -80,10 +80,11 @@ allprojects {
     resolutionStrategy {
       // Force specific versions for conflicting dependencies
       force(
+        'org.jetbrains:annotations:26.0.2',
         'org.apache.commons:commons-text:1.13.1',
         'org.ow2.asm:asm:9.8',
         'org.ow2.asm:asm-util:9.8',
-        'org.ow2.asm:asm-tree:9.8',
+//        'org.ow2.asm:asm-tree:9.8',
         'org.openrewrite.recipe:rewrite-java-dependencies:1.37.0', // Add this
         'com.google.errorprone:error_prone_annotations:2.36.0' // Add this (using the higher version)
       )
