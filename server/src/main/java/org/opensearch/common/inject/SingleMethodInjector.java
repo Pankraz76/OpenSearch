@@ -60,8 +60,8 @@ class SingleMethodInjector implements SingleMemberInjector {
 
         // We can't use FastMethod if the method is private.
         int modifiers = method.getModifiers();
-        if (!Modifier.isPrivate(modifiers) && !Modifier.isProtected(modifiers)) {
-        }
+        Modifier.isPrivate(modifiers);
+        Modifier.isProtected(modifiers);
 
         return new MethodInvoker() {
             @Override

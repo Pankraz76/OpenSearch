@@ -80,6 +80,7 @@ public class MatcherWatchdogTests extends OpenSearchTestCase {
             verify(matcher, timeout(9999).atLeastOnce()).interrupt();
             interrupted.set(true);
             while (run.get()) {
+                continue;
             } // wait here so that the size of the registry can be asserted
             watchdog.unregister(matcher);
         });

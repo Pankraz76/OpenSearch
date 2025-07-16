@@ -102,6 +102,7 @@ public class CancellableThreadsTests extends OpenSearchTestCase {
             try {
                 if (plan.busySpin) {
                     while (!Thread.currentThread().isInterrupted()) {
+                        continue;
                     }
                 } else {
                     Thread.sleep(50000);
@@ -135,6 +136,7 @@ public class CancellableThreadsTests extends OpenSearchTestCase {
             try {
                 if (plan.busySpin) {
                     while (!Thread.currentThread().isInterrupted()) {
+                        continue;
                     }
                 } else {
                     Thread.sleep(50000);

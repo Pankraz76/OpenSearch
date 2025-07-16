@@ -105,6 +105,7 @@ public class UpdateByQueryRequestTests extends AbstractBulkByScrollRequestTestCa
     protected UpdateByQueryRequest doParseInstance(XContentParser parser) throws IOException {
         XContentParser.Token token;
         while ((token = parser.nextToken()) != null) {
+            continue;
         }
         return newRequest();
     }

@@ -78,6 +78,7 @@ public class ResizeIndexMigrationTestCase extends MigrationBaseTestCase {
 
         ResizeType resizeType;
         int resizeShardsNum;
+        String cause;
         switch (randomIntBetween(0, 2)) {
             case 0:
                 resizeType = ResizeType.SHRINK;
@@ -171,6 +172,7 @@ public class ResizeIndexMigrationTestCase extends MigrationBaseTestCase {
 
         ResizeType resizeType;
         int resizeShardsNum;
+        String cause;
         switch (randomIntBetween(0, 2)) {
             case 0:
                 resizeType = ResizeType.SHRINK;

@@ -431,6 +431,7 @@ public class ContextIndexSearcherTests extends OpenSearchTestCase {
         SparseFixedBitSet sparseFixedBitSet = new SparseFixedBitSet(leaf.reader().maxDoc());
         TermsEnum tenum = leaf.reader().terms(field).iterator();
         while (tenum.next().utf8ToString().equals(value) == false) {
+            continue;
         }
         PostingsEnum penum = tenum.postings(null);
         sparseFixedBitSet.or(penum);

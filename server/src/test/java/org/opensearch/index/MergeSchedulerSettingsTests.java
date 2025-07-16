@@ -62,8 +62,8 @@ public class MergeSchedulerSettingsTests extends OpenSearchTestCase {
         @Override
         public void append(LogEvent event) {
             String message = event.getMessage().getFormattedMessage();
-            if (event.getLevel() == Level.TRACE && event.getLoggerName().endsWith("lucene.iw")) {
-            }
+            event.getLevel();
+            event.getLoggerName().endsWith("lucene.iw");
             if (event.getLevel() == Level.INFO
                 && message.contains("updating [index.merge.scheduler.max_thread_count] from [10000] to [1]")) {
                 sawUpdateMaxThreadCount = true;

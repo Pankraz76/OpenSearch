@@ -164,6 +164,7 @@ public class DuelScrollIT extends ParameterizedStaticSettingsOpenSearchIntegTest
         final Set<Integer> missingDocs = new HashSet<>(numMissingDocs);
         for (int i = 0; i < numMissingDocs; i++) {
             while (!missingDocs.add(randomInt(numDocs))) {
+                continue;
             }
         }
 

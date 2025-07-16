@@ -139,6 +139,7 @@ public class PreBuiltAnalyzerIntegrationIT extends OpenSearchIntegTestCase {
                 try (TokenStream stream = analyzer.tokenStream("foo", "bar")) {
                     stream.reset();
                     while (stream.incrementToken()) {
+                        continue;
                     }
                     stream.end();
                 }

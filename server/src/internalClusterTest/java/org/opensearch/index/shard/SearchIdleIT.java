@@ -126,6 +126,7 @@ public class SearchIdleIT extends OpenSearchSingleNodeTestCase {
         Thread t = new Thread(() -> {
             started.countDown();
             do {
+                continue;
 
             } while (count.applyAsLong(totalNumDocs.get()) != totalNumDocs.get());
         });
