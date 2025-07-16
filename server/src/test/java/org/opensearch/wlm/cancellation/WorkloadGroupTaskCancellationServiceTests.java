@@ -179,7 +179,6 @@ public class WorkloadGroupTaskCancellationServiceTests extends OpenSearchTestCas
 
     public void testGetCancellableTasksFrom_filtersWorkloadGroupCorrectly() {
         ResourceType resourceType = ResourceType.CPU;
-        double usage = 0.02;
         Double threshold = 0.01;
 
         WorkloadGroup workloadGroup1 = new WorkloadGroup(
@@ -512,7 +511,6 @@ public class WorkloadGroupTaskCancellationServiceTests extends OpenSearchTestCas
 
     public void testGetCancellableTasksFrom_doesNotReturnTasksWhenWorkloadGroupIdNotFound() {
         ResourceType resourceType = ResourceType.CPU;
-        double usage = 0.11;
         Double threshold = 0.01;
 
         WorkloadGroup workloadGroup1 = new WorkloadGroup(

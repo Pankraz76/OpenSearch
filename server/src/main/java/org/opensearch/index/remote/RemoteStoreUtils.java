@@ -55,7 +55,6 @@ import static org.opensearch.indices.RemoteStoreSettings.CLUSTER_REMOTE_STORE_TR
  * @opensearch.internal
  */
 public class RemoteStoreUtils {
-    private static final Logger logger = LogManager.getLogger(RemoteStoreUtils.class);
     public static final int LONG_MAX_LENGTH = String.valueOf(Long.MAX_VALUE).length();
 
     /**

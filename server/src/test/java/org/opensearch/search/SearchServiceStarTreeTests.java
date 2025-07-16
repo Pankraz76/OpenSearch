@@ -284,8 +284,6 @@ public class SearchServiceStarTreeTests extends OpenSearchSingleNodeTestCase {
             null,
             null
         );
-
-        QueryBuilder baseQuery;
         SearchContext searchContext = createSearchContext(indexService);
         StarTreeFieldConfiguration starTreeFieldConfiguration = new StarTreeFieldConfiguration(
             1,

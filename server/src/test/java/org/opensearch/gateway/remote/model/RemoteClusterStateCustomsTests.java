@@ -53,7 +53,6 @@ public class RemoteClusterStateCustomsTests extends OpenSearchTestCase {
     private static final String TEST_BLOB_NAME = "/test-path/test-blob-name";
     private static final String TEST_BLOB_PATH = "test-path";
     private static final String TEST_BLOB_FILE_NAME = "test-blob-name";
-    private static final String CUSTOM_TYPE = "test-custom";
     private static final long STATE_VERSION = 3L;
     private String clusterUUID;
     private BlobStoreTransferService blobStoreTransferService;

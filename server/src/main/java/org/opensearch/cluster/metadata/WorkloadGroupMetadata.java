@@ -12,7 +12,6 @@ import org.opensearch.Version;
 import org.opensearch.cluster.Diff;
 import org.opensearch.cluster.DiffableUtils;
 import org.opensearch.cluster.NamedDiff;
-import org.opensearch.core.ParseField;
 import org.opensearch.core.common.Strings;
 import org.opensearch.core.common.io.stream.StreamInput;
 import org.opensearch.core.common.io.stream.StreamOutput;
@@ -44,7 +43,6 @@ public class WorkloadGroupMetadata implements Metadata.Custom {
     // We are not changing this name to ensure the cluster state restore works when a OS version < 3.0 writes it to
     // either a remote store or on local disk and OS version >= 3.0 reads it
     public static final String TYPE = "queryGroups";
-    private static final ParseField WORKLOAD_GROUP_FIELD = new ParseField("queryGroups");
 
     private final Map<String, WorkloadGroup> workloadGroups;
 

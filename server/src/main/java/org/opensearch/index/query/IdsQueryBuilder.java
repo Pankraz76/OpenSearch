@@ -34,7 +34,6 @@ package org.opensearch.index.query;
 
 import org.apache.lucene.search.Query;
 import org.opensearch.Version;
-import org.opensearch.common.logging.DeprecationLogger;
 import org.opensearch.core.ParseField;
 import org.opensearch.core.common.ParsingException;
 import org.opensearch.core.common.Strings;
@@ -63,10 +62,7 @@ import static org.opensearch.core.xcontent.ObjectParser.fromList;
  */
 public class IdsQueryBuilder extends AbstractQueryBuilder<IdsQueryBuilder> {
     public static final String NAME = "ids";
-    private static final DeprecationLogger deprecationLogger = DeprecationLogger.getLogger(IdsQueryBuilder.class);
     static final String TYPES_DEPRECATION_MESSAGE = "[types removal] Types are deprecated in [ids] queries.";
-
-    private static final ParseField TYPE_FIELD = new ParseField("type");
     private static final ParseField VALUES_FIELD = new ParseField("values");
 
     private final Set<String> ids = new HashSet<>();

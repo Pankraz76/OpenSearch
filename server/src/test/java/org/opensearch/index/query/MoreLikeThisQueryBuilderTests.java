@@ -84,8 +84,6 @@ public class MoreLikeThisQueryBuilderTests extends AbstractQueryTestCase<MoreLik
     private static Item[] randomLikeItems;
     private static Item[] randomUnlikeItems;
 
-    private Set<String> assertedWarnings = new HashSet<>();
-
     @Before
     public void setup() {
         // MLT only supports string fields, unsupported fields are tested below

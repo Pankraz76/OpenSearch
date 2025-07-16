@@ -39,7 +39,6 @@ import software.amazon.awssdk.core.Protocol;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.opensearch.common.logging.DeprecationLogger;
 import org.opensearch.common.settings.SecureSetting;
 import org.opensearch.common.settings.Setting;
 import org.opensearch.common.settings.Setting.Property;
@@ -109,8 +108,6 @@ final class Ec2ClientSettings {
     );
 
     private static final Logger logger = LogManager.getLogger(Ec2ClientSettings.class);
-
-    private static final DeprecationLogger deprecationLogger = DeprecationLogger.getLogger(Ec2ClientSettings.class);
 
     /** Credentials to authenticate with ec2. */
     final AwsCredentials credentials;

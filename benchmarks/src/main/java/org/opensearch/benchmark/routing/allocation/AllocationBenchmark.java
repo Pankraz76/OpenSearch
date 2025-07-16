@@ -143,7 +143,6 @@ public class AllocationBenchmark {
     public int clusterConcurrentRecoveries;
 
     private AllocationService initialClusterStrategy;
-    private AllocationService clusterExcludeStrategy;
     private AllocationService clusterZoneAwareExcludeStrategy;
     private ClusterState initialClusterState;
 

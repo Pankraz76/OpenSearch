@@ -38,7 +38,6 @@ public class PrimaryShardReplicationSourceTests extends IndexShardTestCase {
 
     private static final long PRIMARY_TERM = 1L;
     private static final long SEGMENTS_GEN = 2L;
-    private static final long SEQ_NO = 3L;
     private static final long VERSION = 4L;
     private static final long REPLICATION_ID = 123L;
 

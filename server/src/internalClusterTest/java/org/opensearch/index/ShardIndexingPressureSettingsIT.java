@@ -425,11 +425,9 @@ public class ShardIndexingPressureSettingsIT extends OpenSearchIntegTestCase {
 
     public void testShardIndexingPressureEnforcedEnabledNoOpIfFeatureDisabled() throws Exception {
         final BulkRequest bulkRequest = new BulkRequest();
-        int totalRequestSize = 0;
         for (int i = 0; i < 80; ++i) {
             IndexRequest request = new IndexRequest(INDEX_NAME).id(UUIDs.base64UUID())
                 .source(Collections.singletonMap("key", randomAlphaOfLength(50)));
-            totalRequestSize += request.ramBytesUsed();
             assertTrue(request.ramBytesUsed() > request.source().length());
             bulkRequest.add(request);
         }
@@ -469,11 +467,9 @@ public class ShardIndexingPressureSettingsIT extends OpenSearchIntegTestCase {
 
     public void testShardIndexingPressureVerifyShardMinLimitSettingUpdate() throws Exception {
         final BulkRequest bulkRequest = new BulkRequest();
-        int totalRequestSize = 0;
         for (int i = 0; i < 80; ++i) {
             IndexRequest request = new IndexRequest(INDEX_NAME).id(UUIDs.base64UUID())
                 .source(Collections.singletonMap("key", randomAlphaOfLength(50)));
-            totalRequestSize += request.ramBytesUsed();
             assertTrue(request.ramBytesUsed() > request.source().length());
             bulkRequest.add(request);
         }

@@ -62,8 +62,6 @@ public class HeaderWarningTests extends OpenSearchTestCase {
 
     private static final RegexMatcher warningValueMatcher = matches(WARNING_HEADER_PATTERN.pattern());
 
-    private final HeaderWarning logger = new HeaderWarning();
-
     @Override
     protected boolean enableWarningsCheck() {
         // this is a low level test for the deprecation logger, setup and checks are done manually

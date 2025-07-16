@@ -9,7 +9,6 @@
 package org.opensearch.index.compositeindex.datacube.startree.builder;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.lucene.index.SegmentWriteState;
 import org.apache.lucene.store.IndexInput;
 import org.apache.lucene.store.IndexOutput;
@@ -33,8 +32,6 @@ import java.util.List;
  */
 @ExperimentalApi
 public class SegmentDocsFileManager extends AbstractDocumentsFileManager implements Closeable {
-
-    private static final Logger logger = LogManager.getLogger(SegmentDocsFileManager.class);
     private static final String SEGMENT_DOC_FILE_NAME = "segment.documents";
     private IndexInput segmentDocsFileInput;
     private RandomAccessInput segmentRandomInput;

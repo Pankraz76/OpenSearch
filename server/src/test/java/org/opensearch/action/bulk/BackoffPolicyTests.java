@@ -101,7 +101,6 @@ public class BackoffPolicyTests extends OpenSearchTestCase {
 
     public void testExponentialBackOffPolicy() {
         long baseDelay = 10;
-        int maxDelay = 10000;
         long currentDelay = baseDelay;
         BackoffPolicy policy = BackoffPolicy.exponentialFullJitterBackoff(baseDelay);
         Iterator<TimeValue> iterator = policy.iterator();

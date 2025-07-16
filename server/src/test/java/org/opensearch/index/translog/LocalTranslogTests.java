@@ -821,9 +821,7 @@ public class LocalTranslogTests extends OpenSearchTestCase {
         long fromSeqNo = 0L;
         long toSeqNo = Math.min(nextSeqNo - 1, fromSeqNo + 15);
         try (Translog.Snapshot snapshot = translog.newSnapshot(fromSeqNo, toSeqNo, true)) {
-            int totOps = 0;
             for (Translog.Operation op = snapshot.next(); op != null; op = snapshot.next()) {
-                totOps++;
             }
             fail("Should throw exception for missing operations");
         } catch (MissingHistoryOperationsException e) {

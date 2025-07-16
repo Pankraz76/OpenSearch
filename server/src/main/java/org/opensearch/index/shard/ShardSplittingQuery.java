@@ -243,7 +243,6 @@ final class ShardSplittingQuery extends Query {
     private final class Visitor extends StoredFieldVisitor {
         final LeafReader leafReader;
         private int leftToVisit = 2;
-        private final BytesRef spare = new BytesRef();
         private String routing;
         private String id;
 

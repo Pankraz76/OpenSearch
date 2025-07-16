@@ -9,7 +9,6 @@
 package org.opensearch.action.admin.indices.tiering;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.action.support.ActionFilters;
 import org.opensearch.action.support.clustermanager.TransportClusterManagerNodeAction;
 import org.opensearch.cluster.ClusterInfoService;
@@ -40,8 +39,6 @@ import static org.opensearch.indices.tiering.TieringRequestValidator.validateHot
  */
 @ExperimentalApi
 public class TransportHotToWarmTieringAction extends TransportClusterManagerNodeAction<TieringIndexRequest, HotToWarmTieringResponse> {
-
-    private static final Logger logger = LogManager.getLogger(TransportHotToWarmTieringAction.class);
     private final ClusterInfoService clusterInfoService;
     private final DiskThresholdSettings diskThresholdSettings;
 

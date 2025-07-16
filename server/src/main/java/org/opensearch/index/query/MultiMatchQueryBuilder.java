@@ -643,7 +643,6 @@ public class MultiMatchQueryBuilder extends AbstractQueryBuilder<MultiMatchQuery
         Operator operator = DEFAULT_OPERATOR;
         String minimumShouldMatch = null;
         String fuzzyRewrite = null;
-        Boolean useDisMax = null;
         Float tieBreaker = null;
         Float cutoffFrequency = null;
         Boolean lenient = null;

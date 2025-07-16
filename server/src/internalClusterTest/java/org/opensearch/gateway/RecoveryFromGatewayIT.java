@@ -1526,7 +1526,6 @@ public class RecoveryFromGatewayIT extends OpenSearchIntegTestCase {
             ensureGreen(indices);
         }
         shardAttributesMap = prepareRequestMap(indices, 1);
-        TransportNodesListShardStoreMetadataBatch.NodesStoreFilesMetadataBatch response;
         return ActionTestUtils.executeBlocking(
             internalCluster().getInstance(TransportNodesListShardStoreMetadataBatch.class),
             new TransportNodesListShardStoreMetadataBatch.Request(shardAttributesMap, nodes)

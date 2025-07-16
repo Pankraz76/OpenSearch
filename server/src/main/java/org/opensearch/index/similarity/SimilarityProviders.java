@@ -65,7 +65,6 @@ import org.apache.lucene.search.similarities.NormalizationH3;
 import org.apache.lucene.search.similarities.NormalizationZ;
 import org.apache.lucene.search.similarities.Similarity;
 import org.opensearch.Version;
-import org.opensearch.common.logging.DeprecationLogger;
 import org.opensearch.common.settings.Settings;
 import org.opensearch.lucene.similarity.LegacyBM25Similarity;
 
@@ -84,9 +83,8 @@ import static java.util.Collections.unmodifiableMap;
  */
 final class SimilarityProviders {
 
-    private SimilarityProviders() {} // no instantiation
+    private SimilarityProviders() {}
 
-    private static final DeprecationLogger deprecationLogger = DeprecationLogger.getLogger(SimilarityProviders.class);
     static final String DISCOUNT_OVERLAPS = "discount_overlaps";
 
     private static final Map<String, BasicModel> BASIC_MODELS;

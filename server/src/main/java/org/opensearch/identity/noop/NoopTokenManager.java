@@ -9,7 +9,6 @@
 package org.opensearch.identity.noop;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.identity.IdentityService;
 import org.opensearch.identity.Subject;
 import org.opensearch.identity.tokens.AuthToken;
@@ -20,8 +19,6 @@ import org.opensearch.identity.tokens.TokenManager;
  * This class represents a Noop Token Manager
  */
 public class NoopTokenManager implements TokenManager {
-
-    private static final Logger log = LogManager.getLogger(IdentityService.class);
 
     /**
      * Issue a new Noop Token

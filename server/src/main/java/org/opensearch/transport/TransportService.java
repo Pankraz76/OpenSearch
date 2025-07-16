@@ -578,7 +578,6 @@ public class TransportService extends AbstractLifecycleComponent
         return (newConnection, actualProfile, listener) -> {
             // We don't validate cluster names to allow for CCS connections.
             handshake(newConnection, actualProfile.getHandshakeTimeout().millis(), cn -> true, ActionListener.map(listener, resp -> {
-                final DiscoveryNode remote = resp.discoveryNode;
                 logger.info("Connection validation was skipped");
                 return null;
             }));

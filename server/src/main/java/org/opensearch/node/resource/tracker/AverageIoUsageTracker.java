@@ -9,7 +9,6 @@
 package org.opensearch.node.resource.tracker;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.lucene.util.Constants;
 import org.opensearch.common.ValidationException;
 import org.opensearch.common.unit.TimeValue;
@@ -26,8 +25,6 @@ import java.util.Optional;
  * and keeping track of the rolling average over a defined time window (windowDuration).
  */
 public class AverageIoUsageTracker extends AbstractAverageUsageTracker {
-
-    private static final Logger LOGGER = LogManager.getLogger(AverageIoUsageTracker.class);
     private final FsService fsService;
     private final HashMap<String, Long> prevIoTimeDeviceMap;
     private long prevTimeInMillis;

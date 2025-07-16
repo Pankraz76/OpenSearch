@@ -1941,10 +1941,10 @@ public class CRUDDocumentationIT extends OpenSearchRestHighLevelClientTestCase {
             MultiGetItemResponse missingIndexItem = response.getResponses()[2];
             // tag::multi-get-indexnotfound
             assertNull(missingIndexItem.getResponse());                // <1>
-            Exception e = missingIndexItem.getFailure().getFailure();  // <2>
-            OpenSearchException ee = (OpenSearchException) e;    // <3>
+            Exception e = missingIndexItem.getFailure().getFailure();    // <3>
             // TODO status is broken! fix in a followup
             // assertEquals(RestStatus.NOT_FOUND, ee.status());        // <4>
+            // <2>
             assertThat(e.getMessage(),
                 containsString("reason=no such index [missing_index]")); // <5>
             // end::multi-get-indexnotfound
@@ -2033,10 +2033,10 @@ public class CRUDDocumentationIT extends OpenSearchRestHighLevelClientTestCase {
             MultiGetResponse response = client.mget(request, RequestOptions.DEFAULT);
             MultiGetItemResponse item = response.getResponses()[0];
             assertNull(item.getResponse());                          // <1>
-            Exception e = item.getFailure().getFailure();            // <2>
-            OpenSearchException ee = (OpenSearchException) e;  // <3>
+            Exception e = item.getFailure().getFailure();  // <3>
             // TODO status is broken! fix in a followup
             // assertEquals(RestStatus.CONFLICT, ee.status());          // <4>
+            // <2>
             assertThat(e.getMessage(),
                 containsString("version conflict, current version [1] is "
                     + "different than the one provided [1000]"));    // <5>

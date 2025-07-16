@@ -9,7 +9,6 @@
 package org.opensearch.gateway;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.Version;
 import org.opensearch.action.support.nodes.BaseNodeResponse;
 import org.opensearch.cluster.ClusterInfo;
@@ -62,8 +61,6 @@ import static org.opensearch.gateway.ShardsBatchGatewayAllocator.REPLICA_BATCH_A
 import static org.hamcrest.Matchers.greaterThanOrEqualTo;
 
 public class GatewayAllocatorTests extends OpenSearchAllocationTestCase {
-
-    private final Logger logger = LogManager.getLogger(GatewayAllocatorTests.class);
     TestShardBatchGatewayAllocator testShardsBatchGatewayAllocator = null;
     ClusterState clusterState = null;
     RoutingAllocation testAllocation = null;

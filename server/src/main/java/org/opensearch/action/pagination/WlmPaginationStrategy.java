@@ -39,7 +39,6 @@ public class WlmPaginationStrategy implements PaginationStrategy<WlmStats> {
     private final List<WlmStats> paginatedStats;
     private final int snapshotWorkloadGroupCount;
     private PageToken responseToken;
-    private static final String HASH_ALGORITHM = "SHA-256";
 
     public WlmPaginationStrategy(int pageSize, String nextToken, SortBy sortBy, SortOrder sortOrder, WlmStatsResponse response) {
         this.pageSize = pageSize;

@@ -2270,7 +2270,6 @@ public class StarTreeBuilderMergeFlowTests extends StarTreeBuilderTestCase {
     ) {
         SortedSetDocValues d1sndv = dimList;
         SortedSetDocValues d2sndv = dimList2;
-        SortedNumericDocValues m1sndv = metricsList;
         Map<String, Supplier<StarTreeValuesIterator>> dimDocIdSetIterators = Map.of(
             "field1",
             () -> new SortedSetStarTreeValuesIterator(d1sndv),

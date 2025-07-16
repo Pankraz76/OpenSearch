@@ -64,7 +64,6 @@ import static org.opensearch.search.aggregations.Aggregator.SubAggCollectionMode
 import static org.opensearch.test.InternalAggregationTestCase.DEFAULT_MAX_BUCKETS;
 
 public class NumericTermsAggregatorTests extends AggregatorTestCase {
-    private static FeatureFlags.TestUtils.FlagWriteLock fflock = null;
     final static String STATUS = "status";
     final static String SIZE = "size";
     private static final MappedFieldType STATUS_FIELD_TYPE = new NumberFieldMapper.NumberFieldType(

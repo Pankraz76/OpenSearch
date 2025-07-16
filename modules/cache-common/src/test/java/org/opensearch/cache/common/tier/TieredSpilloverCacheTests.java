@@ -1858,8 +1858,6 @@ public class TieredSpilloverCacheTests extends OpenSearchTestCase {
         for (int iter = 0; iter < numOfItems2; iter++) {
             ICacheKey<String> key = getICacheKey(UUID.randomUUID().toString());
             int keySegment = tieredSpilloverCache.getSegmentNumber(key);
-            TieredSpilloverCache.TieredSpilloverCacheSegment<String, String> segment =
-                tieredSpilloverCache.tieredSpilloverCacheSegments[keySegment];
             LoadAwareCacheLoader<ICacheKey<String>, String> loadAwareCacheLoader = getLoadAwareCacheLoader();
             tieredSpilloverCache.computeIfAbsent(key, loadAwareCacheLoader);
         }

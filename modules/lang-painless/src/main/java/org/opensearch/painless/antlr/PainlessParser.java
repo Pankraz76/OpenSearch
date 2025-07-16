@@ -2456,7 +2456,6 @@ class PainlessParser extends Parser {
         ParserRuleContext _parentctx = _ctx;
         int _parentState = getState();
         NoncondexpressionContext _localctx = new NoncondexpressionContext(_ctx, _parentState);
-        NoncondexpressionContext _prevctx = _localctx;
         int _startState = 32;
         enterRecursionRule(_localctx, 32, RULE_noncondexpression, _p);
         int _la;
@@ -2467,7 +2466,6 @@ class PainlessParser extends Parser {
                 {
                     _localctx = new SingleContext(_localctx);
                     _ctx = _localctx;
-                    _prevctx = _localctx;
 
                     setState(266);
                     unary();
@@ -2479,7 +2477,6 @@ class PainlessParser extends Parser {
                 while (_alt != 2 && _alt != org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER) {
                     if (_alt == 1) {
                         if (_parseListeners != null) triggerExitRuleEvent();
-                        _prevctx = _localctx;
                         {
                             setState(307);
                             _errHandler.sync(this);

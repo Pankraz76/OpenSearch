@@ -41,7 +41,6 @@ import org.opensearch.OpenSearchParseException;
 import org.opensearch.Version;
 import org.opensearch.common.geo.GeoPoint;
 import org.opensearch.common.geo.GeoUtils;
-import org.opensearch.common.logging.DeprecationLogger;
 import org.opensearch.common.unit.DistanceUnit;
 import org.opensearch.core.xcontent.XContentBuilder;
 import org.opensearch.core.xcontent.XContentParser;
@@ -88,8 +87,6 @@ public class GeoContextMapping extends ContextMapping<GeoQueryContext> {
     static final String CONTEXT_BOOST = "boost";
     static final String CONTEXT_PRECISION = "precision";
     static final String CONTEXT_NEIGHBOURS = "neighbours";
-
-    private static final DeprecationLogger deprecationLogger = DeprecationLogger.getLogger(GeoContextMapping.class);
 
     private final int precision;
     private final String fieldName;

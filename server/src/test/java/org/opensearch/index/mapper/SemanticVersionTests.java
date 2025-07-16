@@ -295,9 +295,7 @@ public class SemanticVersionTests extends OpenSearchTestCase {
         SemanticVersion version4 = SemanticVersion.parse("0.0.0");
         String normalized4 = version4.getNormalizedString();
         assertEquals("00000000000000000000.00000000000000000000.00000000000000000000", normalized4);
-
         // Test with a value that doesn't need padding
-        String str = "9999999999";
         String padded = SemanticVersion.parse("1.0.0").toString();
     }
 

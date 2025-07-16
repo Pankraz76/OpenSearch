@@ -9,7 +9,6 @@
 package org.opensearch.ratelimitting.admissioncontrol;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.action.admin.indices.alias.get.GetAliasesRequest;
 import org.opensearch.action.admin.indices.alias.get.GetAliasesResponse;
 import org.opensearch.action.support.clustermanager.term.GetTermVersionAction;
@@ -52,8 +51,6 @@ import static org.hamcrest.Matchers.equalTo;
 
 @OpenSearchIntegTestCase.ClusterScope(scope = OpenSearchIntegTestCase.Scope.TEST, numDataNodes = 0)
 public class AdmissionForClusterManagerIT extends OpenSearchIntegTestCase {
-
-    private static final Logger LOGGER = LogManager.getLogger(AdmissionForClusterManagerIT.class);
 
     public static final String INDEX_NAME = "test_index";
 

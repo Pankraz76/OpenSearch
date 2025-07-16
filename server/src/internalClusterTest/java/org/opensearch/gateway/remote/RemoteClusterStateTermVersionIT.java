@@ -47,10 +47,8 @@ import static org.hamcrest.Matchers.is;
 @OpenSearchIntegTestCase.ClusterScope(scope = OpenSearchIntegTestCase.Scope.TEST, numDataNodes = 0)
 public class RemoteClusterStateTermVersionIT extends RemoteStoreBaseIntegTestCase {
     private static final String INDEX_NAME = "test-index";
-    private static final String INDEX_NAME_1 = "test-index-1";
     List<BlobPath> indexRoutingPaths;
     AtomicInteger indexRoutingFiles = new AtomicInteger();
-    private final RemoteStoreEnums.PathType pathType = RemoteStoreEnums.PathType.HASHED_PREFIX;
 
     @Before
     public void setup() {

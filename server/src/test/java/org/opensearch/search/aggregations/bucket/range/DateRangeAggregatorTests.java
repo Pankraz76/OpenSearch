@@ -66,7 +66,6 @@ import static java.util.Collections.singleton;
 public class DateRangeAggregatorTests extends AggregatorTestCase {
 
     private String NUMBER_FIELD_NAME = "number";
-    private String UNMAPPED_FIELD_NAME = "field_not_appearing_in_this_index";
     private String DATE_FIELD_NAME = "date";
 
     private long milli1 = ZonedDateTime.of(2015, 11, 13, 16, 14, 34, 0, ZoneOffset.UTC).toInstant().toEpochMilli();

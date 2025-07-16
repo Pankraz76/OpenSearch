@@ -64,8 +64,6 @@ public class RerouteBenchmark {
         final String[] params = indicesNodes.split("\\|");
         numIndices = toInt(params[0]);
         numNodes = toInt(params[1]);
-
-        int totalShardCount = (numReplicas + 1) * numShards * numIndices;
         Metadata.Builder mb = Metadata.builder();
         for (int i = 1; i <= numIndices; i++) {
             mb.put(

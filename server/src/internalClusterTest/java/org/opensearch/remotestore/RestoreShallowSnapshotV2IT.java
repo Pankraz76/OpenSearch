@@ -667,7 +667,6 @@ public class RestoreShallowSnapshotV2IT extends AbstractSnapshotIntegTestCase {
         Arrays.copyOf(pathTokens, pathTokens.length - 1);
         Path location = PathUtils.get(String.join("/", pathTokens));
         pathTokens = absolutePath2.toString().split("/");
-        String basePath2 = pathTokens[pathTokens.length - 1];
         Arrays.copyOf(pathTokens, pathTokens.length - 1);
         Path location2 = PathUtils.get(String.join("/", pathTokens));
         logger.info("Path 1 [{}]", absolutePath1);
@@ -758,7 +757,6 @@ public class RestoreShallowSnapshotV2IT extends AbstractSnapshotIntegTestCase {
         Arrays.copyOf(pathTokens, pathTokens.length - 1);
         Path location = PathUtils.get(String.join("/", pathTokens));
         pathTokens = absolutePath2.toString().split("/");
-        String basePath2 = pathTokens[pathTokens.length - 1];
         Arrays.copyOf(pathTokens, pathTokens.length - 1);
         Path location2 = PathUtils.get(String.join("/", pathTokens));
         logger.info("Path 1 [{}]", absolutePath1);

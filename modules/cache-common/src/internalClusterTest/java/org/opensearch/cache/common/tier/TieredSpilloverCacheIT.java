@@ -245,7 +245,6 @@ public class TieredSpilloverCacheIT extends TieredSpilloverCacheBaseIT {
         // Force merge the index to ensure there can be no background merges during the subsequent searches that would invalidate the cache
         ForceMergeResponse forceMergeResponse = client.admin().indices().prepareForceMerge("index").setFlush(true).get();
         OpenSearchAssertions.assertAllSuccessful(forceMergeResponse);
-        long perQuerySizeInCacheInBytes = -1;
         for (int iterator = 0; iterator < numberOfIndexedItems; iterator++) {
             SearchResponse resp = client.prepareSearch("index")
                 .setRequestCache(true)

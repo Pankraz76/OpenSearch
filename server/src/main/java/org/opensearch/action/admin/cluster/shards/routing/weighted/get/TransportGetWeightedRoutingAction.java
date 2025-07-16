@@ -9,7 +9,6 @@
 package org.opensearch.action.admin.cluster.shards.routing.weighted.get;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.action.support.ActionFilters;
 import org.opensearch.action.support.clustermanager.TransportClusterManagerNodeReadAction;
 import org.opensearch.cluster.ClusterState;
@@ -36,7 +35,6 @@ import java.io.IOException;
 public class TransportGetWeightedRoutingAction extends TransportClusterManagerNodeReadAction<
     ClusterGetWeightedRoutingRequest,
     ClusterGetWeightedRoutingResponse> {
-    private static final Logger logger = LogManager.getLogger(TransportGetWeightedRoutingAction.class);
     private final WeightedRoutingService weightedRoutingService;
 
     @Inject

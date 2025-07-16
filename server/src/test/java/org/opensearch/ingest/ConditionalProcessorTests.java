@@ -68,8 +68,6 @@ import static org.mockito.Mockito.when;
 
 public class ConditionalProcessorTests extends OpenSearchTestCase {
 
-    private static final String scriptName = "conditionalScript";
-
     public void testChecksCondition() throws Exception {
         String conditionalField = "field1";
         String scriptName = "conditionalScript";

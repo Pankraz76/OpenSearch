@@ -9,7 +9,6 @@
 package org.opensearch.ratelimitting.admissioncontrol;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.lucene.util.Constants;
 import org.opensearch.cluster.service.ClusterService;
 import org.opensearch.common.settings.Settings;
@@ -37,7 +36,6 @@ public class AdmissionControlService {
     private final ThreadPool threadPool;
     public final AdmissionControlSettings admissionControlSettings;
     private final ConcurrentMap<String, AdmissionController> admissionControllers;
-    private static final Logger logger = LogManager.getLogger(AdmissionControlService.class);
     private final ClusterService clusterService;
     private final Settings settings;
     private final ResourceUsageCollectorService resourceUsageCollectorService;

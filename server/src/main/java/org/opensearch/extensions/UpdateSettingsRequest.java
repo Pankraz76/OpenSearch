@@ -9,7 +9,6 @@
 package org.opensearch.extensions;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.common.settings.Setting;
 import org.opensearch.common.settings.WriteableSetting;
 import org.opensearch.core.common.io.stream.StreamInput;
@@ -25,7 +24,6 @@ import java.util.Objects;
  * @opensearch.internal
  */
 public class UpdateSettingsRequest extends TransportRequest {
-    private static final Logger logger = LogManager.getLogger(UpdateSettingsRequest.class);
 
     private WriteableSetting.SettingType settingType;
     private Setting<?> componentSetting;

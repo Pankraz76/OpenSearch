@@ -101,8 +101,6 @@ public class ServerConfig {
      * The thread pool name for the Flight client.
      */
     public static final String FLIGHT_CLIENT_THREAD_POOL_NAME = "flight-client";
-
-    private static final String host = "localhost";
     private static boolean enableSsl;
     private static int threadPoolMin;
     private static int threadPoolMax;

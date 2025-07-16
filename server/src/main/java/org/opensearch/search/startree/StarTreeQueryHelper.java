@@ -47,8 +47,6 @@ import java.util.function.Consumer;
  */
 public class StarTreeQueryHelper {
 
-    private static StarTreeValues starTreeValues;
-
     /**
      * Checks if the search context can be supported by star-tree
      */

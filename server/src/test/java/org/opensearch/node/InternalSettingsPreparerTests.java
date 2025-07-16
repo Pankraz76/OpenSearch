@@ -55,7 +55,6 @@ import java.util.function.Supplier;
 import static java.util.Collections.emptyMap;
 
 public class InternalSettingsPreparerTests extends OpenSearchTestCase {
-    private static final Supplier<String> DEFAULT_NODE_NAME_SHOULDNT_BE_CALLED = () -> { throw new AssertionError("shouldn't be called"); };
 
     Path homeDir;
     Settings baseEnvSettings;

@@ -9,7 +9,6 @@
 package org.opensearch.identity.shiro;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.SecurityManager;
 import org.opensearch.cluster.metadata.IndexNameExpressionResolver;
@@ -48,7 +47,6 @@ import java.util.function.UnaryOperator;
  * Identity implementation with Shiro
  */
 public final class ShiroIdentityPlugin extends Plugin implements IdentityPlugin, ActionPlugin {
-    private Logger log = LogManager.getLogger(this.getClass());
 
     private final Settings settings;
     private final ShiroTokenManager authTokenHandler;

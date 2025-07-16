@@ -9,7 +9,6 @@
 package org.opensearch.extensions;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.common.Nullable;
 import org.opensearch.core.common.io.stream.StreamInput;
 import org.opensearch.core.common.io.stream.StreamOutput;
@@ -26,7 +25,6 @@ import java.util.Objects;
  * @opensearch.internal
  */
 public class ExtensionRequest extends TransportRequest {
-    private static final Logger logger = LogManager.getLogger(ExtensionRequest.class);
     private final ExtensionRequestProto.ExtensionRequest request;
 
     public ExtensionRequest(ExtensionRequestProto.RequestType requestType) {

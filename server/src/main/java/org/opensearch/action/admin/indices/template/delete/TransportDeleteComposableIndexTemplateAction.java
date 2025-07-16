@@ -33,7 +33,6 @@
 package org.opensearch.action.admin.indices.template.delete;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.action.support.ActionFilters;
 import org.opensearch.action.support.clustermanager.AcknowledgedResponse;
 import org.opensearch.action.support.clustermanager.TransportClusterManagerNodeAction;
@@ -59,8 +58,6 @@ import java.io.IOException;
 public class TransportDeleteComposableIndexTemplateAction extends TransportClusterManagerNodeAction<
     DeleteComposableIndexTemplateAction.Request,
     AcknowledgedResponse> {
-
-    private static final Logger logger = LogManager.getLogger(TransportDeleteComposableIndexTemplateAction.class);
 
     private final MetadataIndexTemplateService indexTemplateService;
 

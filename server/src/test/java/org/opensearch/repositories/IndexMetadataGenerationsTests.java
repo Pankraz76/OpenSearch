@@ -65,7 +65,6 @@ public class IndexMetadataGenerationsTests extends OpenSearchTestCase {
     public void testWithAddedSnapshot() {
         // Construct a new snapshot
         SnapshotId newSnapshot = new SnapshotId("newSnapshot", "newSnapshot");
-        final String newIndexMetadataPrefix = "newIndexMetadata-";
         final String newBlobIdPrefix = "newBlob-";
         final int numIndices = randomIntBetween(2, MAX_TEST_INDICES);
         Map<IndexId, String> newLookupMap = createIndexMetadataMap(2, numIndices);

@@ -2866,13 +2866,8 @@ public class IndexShardTests extends IndexShardTestCase {
 
         indexDoc(source, "_doc", "4");
         source.refresh("test");
-
-        long primaryTerm;
-        long commitGeneration;
         try (GatedCloseable<SegmentInfos> segmentInfosGatedCloseable = source.getSegmentInfosSnapshot()) {
             SegmentInfos segmentInfos = segmentInfosGatedCloseable.get();
-            primaryTerm = source.getOperationPrimaryTerm();
-            commitGeneration = segmentInfos.getGeneration();
         }
         Collection<String> lastCommitedSegmentsInSource = SegmentInfos.readLatestCommit(source.store().directory()).files(false);
 
