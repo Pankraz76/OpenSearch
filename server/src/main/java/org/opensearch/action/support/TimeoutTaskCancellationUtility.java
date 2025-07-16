@@ -38,8 +38,6 @@ public class TimeoutTaskCancellationUtility {
 
     private static final Logger logger = LogManager.getLogger(TimeoutTaskCancellationUtility.class);
 
-    private static final AtomicBoolean executeResponseOrFailureOnce = new AtomicBoolean(true);
-
     /**
      * Wraps a listener with a timeout listener {@link TimeoutRunnableListener} to schedule the task cancellation for provided tasks on
      * generic thread pool

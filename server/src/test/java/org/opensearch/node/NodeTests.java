@@ -178,7 +178,6 @@ public class NodeTests extends OpenSearchTestCase {
     public void testServerNameNodeAttribute() throws IOException {
         String attr = "valid-hostname";
         Settings.Builder settings = baseSettings().put(Node.NODE_ATTRIBUTES.getKey() + "server_name", attr);
-        int i = 0;
         try (Node node = new MockNode(settings.build(), basePlugins())) {
             final Settings nodeSettings = randomBoolean() ? node.settings() : node.getEnvironment().settings();
             assertEquals(attr, Node.NODE_ATTRIBUTES.getAsMap(nodeSettings).get("server_name"));

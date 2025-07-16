@@ -29,8 +29,6 @@ import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.when;
 
 public class HeapUsageTrackerTests extends OpenSearchTestCase {
-    private static final long HEAP_BYTES_THRESHOLD_SEARCH_SHARD_TASK = 100;
-    private static final long HEAP_BYTES_THRESHOLD_SEARCH_TASK = 50;
     private static final int HEAP_MOVING_AVERAGE_WINDOW_SIZE = 100;
 
     private static final SearchBackpressureSettings mockSettings = new SearchBackpressureSettings(

@@ -545,7 +545,6 @@ public class ContextIndexSearcherTests extends OpenSearchTestCase {
     private static class CreateScorerOnceWeight extends Weight {
 
         private final Weight weight;
-        private final Set<Object> seenLeaves = Collections.newSetFromMap(new IdentityHashMap<>());
 
         CreateScorerOnceWeight(Weight weight) {
             super(weight.getQuery());

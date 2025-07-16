@@ -9,7 +9,6 @@
 package org.opensearch.action.support.clustermanager.term;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.action.support.ActionFilters;
 import org.opensearch.action.support.clustermanager.TransportClusterManagerNodeReadAction;
 import org.opensearch.cluster.ClusterState;
@@ -34,8 +33,6 @@ import java.io.IOException;
  * @opensearch.internal
  */
 public class TransportGetTermVersionAction extends TransportClusterManagerNodeReadAction<GetTermVersionRequest, GetTermVersionResponse> {
-
-    private final Logger logger = LogManager.getLogger(getClass());
 
     private final Discovery discovery;
 

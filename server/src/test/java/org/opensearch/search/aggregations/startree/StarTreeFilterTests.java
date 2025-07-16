@@ -58,7 +58,6 @@ import org.mockito.Mockito;
 import static org.opensearch.index.codec.composite912.datacube.startree.AbstractStarTreeDVFormatTests.topMapping;
 
 public class StarTreeFilterTests extends AggregatorTestCase {
-    private static FeatureFlags.TestUtils.FlagWriteLock fflock = null;
 
     private static final String FIELD_NAME = "field";
     private static final String SNDV = "sndv";

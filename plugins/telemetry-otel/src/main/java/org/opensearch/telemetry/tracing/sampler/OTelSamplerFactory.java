@@ -9,7 +9,6 @@
 package org.opensearch.telemetry.tracing.sampler;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.SpecialPermission;
 import org.opensearch.common.settings.Settings;
 import org.opensearch.telemetry.OTelTelemetrySettings;
@@ -28,11 +27,6 @@ import io.opentelemetry.sdk.trace.samplers.Sampler;
  * Factory class to create the instance of OTelSampler
  */
 public class OTelSamplerFactory {
-
-    /**
-     * Logger instance for logging messages related to the OTelSamplerFactory.
-     */
-    private static final Logger logger = LogManager.getLogger(OTelSamplerFactory.class);
 
     /**
      * Base constructor.

@@ -701,7 +701,6 @@ class InstallPluginCommand extends EnvironmentAwareCommand {
         try (ZipFile zipFile = new ZipFile(zip, "UTF8", true, false)) {
             final Enumeration<? extends ZipArchiveEntry> entries = zipFile.getEntries();
             ZipArchiveEntry entry;
-            byte[] buffer = new byte[8192];
             while (entries.hasMoreElements()) {
                 entry = entries.nextElement();
                 if (entry.getName().startsWith("opensearch/")) {

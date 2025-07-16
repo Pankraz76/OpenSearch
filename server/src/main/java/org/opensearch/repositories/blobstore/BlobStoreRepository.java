@@ -322,8 +322,6 @@ public abstract class BlobStoreRepository extends AbstractLifecycleComponent imp
         Setting.Property.Deprecated
     );
 
-    private static final Logger staticLogger = LogManager.getLogger(BlobStoreRepository.class);
-
     /**
      * Setting to disable caching of the latest repository data.
      */

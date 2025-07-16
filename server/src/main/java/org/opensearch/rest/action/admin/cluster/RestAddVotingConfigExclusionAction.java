@@ -33,7 +33,6 @@
 package org.opensearch.rest.action.admin.cluster;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.action.admin.cluster.configuration.AddVotingConfigExclusionsAction;
 import org.opensearch.action.admin.cluster.configuration.AddVotingConfigExclusionsRequest;
 import org.opensearch.common.unit.TimeValue;
@@ -56,7 +55,6 @@ import static org.opensearch.rest.RestRequest.Method.POST;
  */
 public class RestAddVotingConfigExclusionAction extends BaseRestHandler {
     private static final TimeValue DEFAULT_TIMEOUT = TimeValue.timeValueSeconds(30L);
-    private static final Logger logger = LogManager.getLogger(RestAddVotingConfigExclusionAction.class);
 
     private static final String DEPRECATION_MESSAGE = "POST /_cluster/voting_config_exclusions/{node_name} "
         + "will be removed in a future version. "

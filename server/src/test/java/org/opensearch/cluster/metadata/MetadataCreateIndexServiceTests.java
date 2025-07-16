@@ -198,8 +198,6 @@ public class MetadataCreateIndexServiceTests extends OpenSearchTestCase {
     private IndicesService indicesServices;
     private RepositoriesService repositoriesService;
     private Supplier<RepositoriesService> repositoriesServiceSupplier;
-    private static final String segmentRepositoryNameAttributeKey = NODE_ATTRIBUTES.getKey()
-        + REMOTE_STORE_SEGMENT_REPOSITORY_NAME_ATTRIBUTE_KEY;
     private static final String translogRepositoryNameAttributeKey = NODE_ATTRIBUTES.getKey()
         + REMOTE_STORE_TRANSLOG_REPOSITORY_NAME_ATTRIBUTE_KEY;
 

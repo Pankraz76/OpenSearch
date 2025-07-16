@@ -9,7 +9,6 @@
 package org.opensearch.rest.action.admin.cluster;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.action.admin.cluster.shards.routing.weighted.get.ClusterGetWeightedRoutingRequest;
 import org.opensearch.rest.BaseRestHandler;
 import org.opensearch.rest.RestRequest;
@@ -30,8 +29,6 @@ import static org.opensearch.rest.RestRequest.Method.GET;
  *
  */
 public class RestClusterGetWeightedRoutingAction extends BaseRestHandler {
-
-    private static final Logger logger = LogManager.getLogger(RestClusterGetWeightedRoutingAction.class);
 
     @Override
     public List<Route> routes() {

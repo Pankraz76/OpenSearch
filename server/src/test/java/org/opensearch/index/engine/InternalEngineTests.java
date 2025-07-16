@@ -662,7 +662,6 @@ public class InternalEngineTests extends EngineTestCase {
             assertThat(segments.get(0).getDeletedDocs(), equalTo(0));
             assertFalse(segments.get(0).committed);
             int deletes = 0;
-            int updates = 0;
             int appends = 0;
             int iterations = scaledRandomIntBetween(1, 50);
             for (int i = 0; i < iterations && liveDocsFirstSegment.isEmpty() == false; i++) {
@@ -674,7 +673,6 @@ public class InternalEngineTests extends EngineTestCase {
                     deletes++;
                 } else {
                     engine.index(indexForDoc(doc));
-                    updates++;
                 }
                 if (randomBoolean()) {
                     engine.index(indexForDoc(testParsedDocument(UUIDs.randomBase64UUID(), null, testDocument(), B_1, null)));
@@ -1099,8 +1097,6 @@ public class InternalEngineTests extends EngineTestCase {
             engine.refresh("warm_up");
             Engine.Searcher searchResult = engine.acquireSearcher("test");
             searchResult.close();
-
-            final BiFunction<String, Engine.SearcherScope, Engine.Searcher> searcherFactory = engine::acquireSearcher;
 
             // create a document
             Document document = testDocumentWithTextField();
@@ -6790,7 +6786,6 @@ public class InternalEngineTests extends EngineTestCase {
         try (Store store = createStore()) {
             EngineConfig config = config(defaultSettings, store, createTempDir(), newMergePolicy(), null, null, globalCheckpoint::get);
             final List<Long> commitMaxSeqNo = new ArrayList<>();
-            final long minTranslogGen;
             try (InternalEngine engine = createEngine(config)) {
                 for (int i = 0; i < seqNos.size(); i++) {
                     ParsedDocument doc = testParsedDocument(Long.toString(seqNos.get(i)), null, testDocument(), new BytesArray("{}"), null);
@@ -6818,7 +6813,6 @@ public class InternalEngineTests extends EngineTestCase {
                 globalCheckpoint.set(randomInt(maxSeqNo));
                 engine.translogManager().syncTranslog();
                 engine.ensureOpen();
-                minTranslogGen = assertAndGetInternalTranslogManager(engine.translogManager()).getTranslog().getMinFileGeneration();
             }
 
             store.trimUnsafeCommits(config.getTranslogConfig().getTranslogPath());

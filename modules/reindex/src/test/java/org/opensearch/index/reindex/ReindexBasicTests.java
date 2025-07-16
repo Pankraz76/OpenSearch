@@ -144,7 +144,6 @@ public class ReindexBasicTests extends ReindexTestCase {
         Map<String, List<IndexRequestBuilder>> docs = new HashMap<>();
         for (int sourceIndex = 0; sourceIndex < sourceIndices; sourceIndex++) {
             String indexName = "source" + sourceIndex;
-            String typeName = "test" + sourceIndex;
             docs.put(indexName, new ArrayList<>());
             int numDocs = between(50, 200);
             for (int i = 0; i < numDocs; i++) {

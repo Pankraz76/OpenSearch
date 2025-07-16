@@ -50,7 +50,6 @@ import static org.mockito.Mockito.mock;
 public class ForEachProcessorFactoryTests extends OpenSearchTestCase {
 
     private final ScriptService scriptService = mock(ScriptService.class);
-    private final Consumer<Runnable> genericExecutor = Runnable::run;
 
     public void testCreate() throws Exception {
         Processor processor = new TestProcessor(ingestDocument -> {});

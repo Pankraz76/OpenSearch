@@ -398,9 +398,7 @@ public class InstallPluginCommandTests extends OpenSearchTestCase {
             Path binDir = env.binDir().resolve(name);
             assertTrue("bin dir exists", Files.exists(binDir));
             assertTrue("bin is a dir", Files.isDirectory(binDir));
-            PosixFileAttributes binAttributes = null;
             if (isPosix) {
-                binAttributes = Files.readAttributes(env.binDir(), PosixFileAttributes.class);
             }
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(binDir)) {
                 for (Path file : stream) {

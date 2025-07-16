@@ -9,7 +9,6 @@
 package org.opensearch.search.query;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.lucene.search.Collector;
 import org.apache.lucene.search.CollectorManager;
 import org.apache.lucene.search.Query;
@@ -31,7 +30,6 @@ import java.util.concurrent.ExecutionException;
  * search of Apache Lucene segments if it has been enabled.
  */
 public class ConcurrentQueryPhaseSearcher extends DefaultQueryPhaseSearcher {
-    private static final Logger LOGGER = LogManager.getLogger(ConcurrentQueryPhaseSearcher.class);
     private final AggregationProcessor aggregationProcessor = new ConcurrentAggregationProcessor();
 
     /**

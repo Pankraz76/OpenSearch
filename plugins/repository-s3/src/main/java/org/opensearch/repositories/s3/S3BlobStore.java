@@ -36,7 +36,6 @@ import software.amazon.awssdk.services.s3.model.ObjectCannedACL;
 import software.amazon.awssdk.services.s3.model.StorageClass;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.opensearch.cluster.metadata.RepositoryMetadata;
 import org.opensearch.common.blobstore.BlobContainer;
 import org.opensearch.common.blobstore.BlobPath;
@@ -70,8 +69,6 @@ import static org.opensearch.repositories.s3.S3Repository.STORAGE_CLASS_SETTING;
 import static org.opensearch.repositories.s3.S3Repository.UPLOAD_RETRY_ENABLED;
 
 public class S3BlobStore implements BlobStore {
-
-    private static final Logger logger = LogManager.getLogger(S3BlobStore.class);
 
     private final S3Service service;
 

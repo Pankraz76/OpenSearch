@@ -43,7 +43,6 @@ import static org.opensearch.test.hamcrest.OpenSearchAssertions.assertAcked;
  */
 @OpenSearchIntegTestCase.ClusterScope(scope = OpenSearchIntegTestCase.Scope.TEST, numDataNodes = 0)
 public class RemoteRepositoryConfigurationIT extends MigrationBaseTestCase {
-    private final String REMOTE_PRI_DOCREP_REP = "remote-primary-docrep-replica";
 
     protected String remoteRepoPrefix = "remote_store";
 

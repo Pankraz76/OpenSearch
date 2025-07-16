@@ -79,7 +79,6 @@ public class GetMappingsActionTests extends OpenSearchTestCase {
     private ClusterService clusterService;
     private ThreadPool threadPool;
     private SettingsFilter settingsFilter;
-    private final String indexName = "test_index";
     CapturingTransport capturingTransport = new CapturingTransport();
     private DiscoveryNode localNode;
     private DiscoveryNode remoteNode;

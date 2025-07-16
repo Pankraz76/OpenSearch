@@ -82,7 +82,6 @@ public class TermsQueryBuilderTests extends AbstractQueryTestCase<TermsQueryBuil
     private List<Object> randomTerms;
     private String termsPath;
     private boolean maybeIncludeType = true;
-    private Set<String> assertedWarnings = new HashSet<>();
 
     @Before
     public void randomTerms() {

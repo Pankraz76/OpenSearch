@@ -96,7 +96,6 @@ public class ExplainResponseTests extends AbstractSerializingTestCase<ExplainRes
 
     public void testToXContent() throws IOException {
         String index = "index";
-        String type = "type";
         String id = "1";
         boolean exist = true;
         Explanation explanation = Explanation.match(1.0f, "description", Collections.emptySet());

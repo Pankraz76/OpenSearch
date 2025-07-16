@@ -50,7 +50,6 @@ public class ListViewNamesAction extends ActionType<ListViewNamesAction.Response
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            final Request that = (Request) o;
             return true;
         }
 

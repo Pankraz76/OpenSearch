@@ -212,8 +212,6 @@ public abstract class IndexShardTestCase extends OpenSearchTestCase {
 
     private static final AtomicBoolean failOnShardFailures = new AtomicBoolean(true);
 
-    private RecoveryTarget recoveryTarget;
-
     private static final Consumer<IndexShard.ShardFailure> DEFAULT_SHARD_FAILURE_HANDLER = failure -> {
         if (failOnShardFailures.get()) {
             throw new AssertionError(failure.reason, failure.cause);

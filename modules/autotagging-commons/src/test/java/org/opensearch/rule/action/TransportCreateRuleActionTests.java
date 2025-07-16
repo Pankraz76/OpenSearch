@@ -40,8 +40,6 @@ public class TransportCreateRuleActionTests extends OpenSearchTestCase {
     private RulePersistenceServiceRegistry persistenceRegistry;
     private RuleRoutingService mockRoutingService;
 
-    private final String testIndexName = "test-index";
-
     public void setUp() throws Exception {
         super.setUp();
         transportService = mock(TransportService.class);

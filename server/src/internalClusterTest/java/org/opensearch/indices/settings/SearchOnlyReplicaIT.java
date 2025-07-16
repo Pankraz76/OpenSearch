@@ -39,8 +39,6 @@ public class SearchOnlyReplicaIT extends RemoteStoreBaseIntegTestCase {
 
     private static final String TEST_INDEX = "test_index";
 
-    private final String expectedFailureMessage = "To set index.number_of_search_replicas, index.replication.type must be set to SEGMENT";
-
     @Override
     public Settings indexSettings() {
         return Settings.builder()

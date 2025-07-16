@@ -50,7 +50,6 @@ public class RemoteIndexRoutingTableTests extends OpenSearchTestCase {
     private static final String TEST_BLOB_NAME = "/test-path/test-blob-name";
     private static final String TEST_BLOB_PATH = "test-path";
     private static final String TEST_BLOB_FILE_NAME = "test-blob-name";
-    private static final String INDEX_ROUTING_TABLE_TYPE = "test-index-routing-table";
     private static final long STATE_VERSION = 3L;
     private static final long STATE_TERM = 2L;
     private String clusterUUID;

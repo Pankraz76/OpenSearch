@@ -323,10 +323,8 @@ public class GetDataStreamAction extends ActionType<GetDataStreamAction.Response
             List<Response.DataStreamInfo> dataStreamInfos = new ArrayList<>(dataStreams.size());
             for (DataStream dataStream : dataStreams) {
                 String indexTemplate = MetadataIndexTemplateService.findV2Template(state.metadata(), dataStream.getName(), false);
-                String ilmPolicyName = null;
                 if (indexTemplate != null) {
                     Settings settings = MetadataIndexTemplateService.resolveSettings(state.metadata(), indexTemplate);
-                    ilmPolicyName = settings.get("index.lifecycle.name");
                 } else {
                     logger.warn(
                         "couldn't find any matching template for data stream [{}]. has it been restored (and possibly renamed)"

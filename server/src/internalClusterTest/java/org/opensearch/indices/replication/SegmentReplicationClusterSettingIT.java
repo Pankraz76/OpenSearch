@@ -35,7 +35,6 @@ import static org.hamcrest.Matchers.hasSize;
 public class SegmentReplicationClusterSettingIT extends OpenSearchIntegTestCase {
 
     protected static final String INDEX_NAME = "test-idx-1";
-    private static final String SYSTEM_INDEX_NAME = ".test-system-index";
     protected static final int SHARD_COUNT = 1;
     protected static final int REPLICA_COUNT = 1;
 

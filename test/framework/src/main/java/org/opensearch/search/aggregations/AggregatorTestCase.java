@@ -191,7 +191,6 @@ import static org.mockito.Mockito.when;
 public abstract class AggregatorTestCase extends OpenSearchTestCase {
     private static final String NESTEDFIELD_PREFIX = "nested_";
     private List<Releasable> releasables = new ArrayList<>();
-    private static final String TYPE_NAME = "type";
     protected ValuesSourceRegistry valuesSourceRegistry;
 
     // A list of field types that should not be tested, or are not currently supported

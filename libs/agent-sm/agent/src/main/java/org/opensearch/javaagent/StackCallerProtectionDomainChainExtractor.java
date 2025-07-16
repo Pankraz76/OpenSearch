@@ -24,8 +24,6 @@ public final class StackCallerProtectionDomainChainExtractor implements Function
      * Single instance of stateless class.
      */
     public static final StackCallerProtectionDomainChainExtractor INSTANCE = new StackCallerProtectionDomainChainExtractor();
-
-    private static final StackWalker STACK_WALKER = StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE);
     /**
      * Classes that are used to check if the stack frame is from AccessController. Temporarily supports both the
      * AccessController from the JDK (marked for removal) and its replacement in the Java Agent.

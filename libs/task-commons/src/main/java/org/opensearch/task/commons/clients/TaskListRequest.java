@@ -10,7 +10,6 @@ package org.opensearch.task.commons.clients;
 
 import org.opensearch.task.commons.task.TaskStatus;
 import org.opensearch.task.commons.task.TaskType;
-import org.opensearch.task.commons.worker.WorkerNode;
 
 /**
  * Request object for listing tasks
@@ -26,11 +25,6 @@ public class TaskListRequest {
      * Filter listTasks response by specific task types
      */
     private TaskType[] taskTypes;
-
-    /**
-     * Filter listTasks response by specific worker node
-     */
-    private WorkerNode workerNodes;
 
     /**
      * Depicts the start page number for the list call.

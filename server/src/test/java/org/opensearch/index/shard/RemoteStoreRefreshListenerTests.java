@@ -857,7 +857,6 @@ public class RemoteStoreRefreshListenerTests extends IndexShardTestCase {
     private void verifyUploadedSegments(RemoteSegmentStoreDirectory remoteSegmentStoreDirectory) throws IOException {
         Map<String, RemoteSegmentStoreDirectory.UploadedSegmentMetadata> uploadedSegments = remoteSegmentStoreDirectory
             .getSegmentsUploadedToRemoteStore();
-        String segmentsNFilename = null;
         try (GatedCloseable<SegmentInfos> segmentInfosGatedCloseable = indexShard.getSegmentInfosSnapshot()) {
             SegmentInfos segmentInfos = segmentInfosGatedCloseable.get();
             for (String file : segmentInfos.files(true)) {
@@ -865,7 +864,6 @@ public class RemoteStoreRefreshListenerTests extends IndexShardTestCase {
                     assertTrue(uploadedSegments.containsKey(file));
                 }
                 if (file.startsWith(IndexFileNames.SEGMENTS)) {
-                    segmentsNFilename = file;
                 }
             }
         }

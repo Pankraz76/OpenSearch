@@ -935,7 +935,6 @@ public class SearchWeightedRoutingIT extends OpenSearchIntegTestCase {
 
         Set<String> hitNodes = new HashSet<>();
         Future<SearchResponse>[] responses = new Future[51];
-        int size = 17;
         logger.info("--> making search requests");
         for (int i = 0; i < 50; i++) {
             responses[i] = internalCluster().client(nodeMap.get("b").get(0))

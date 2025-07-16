@@ -36,7 +36,6 @@ import org.apache.lucene.analysis.LowerCaseFilter;
 import org.opensearch.Version;
 import org.opensearch.cluster.metadata.IndexMetadata;
 import org.opensearch.common.NamedRegistry;
-import org.opensearch.common.logging.DeprecationLogger;
 import org.opensearch.common.settings.Settings;
 import org.opensearch.env.Environment;
 import org.opensearch.index.IndexSettings;
@@ -86,7 +85,6 @@ public final class AnalysisModule {
     }
 
     private static final IndexSettings NA_INDEX_SETTINGS;
-    private static final DeprecationLogger deprecationLogger = DeprecationLogger.getLogger(AnalysisModule.class);
 
     private final HunspellService hunspellService;
     private final AnalysisRegistry analysisRegistry;

@@ -9,7 +9,6 @@
 package org.opensearch.action.search;
 
 import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.apache.lucene.search.TotalHits;
 import org.opensearch.common.annotation.InternalApi;
 import org.opensearch.core.index.Index;
@@ -32,7 +31,6 @@ import java.util.function.Supplier;
  */
 @InternalApi
 public class SearchRequestContext {
-    private static final Logger logger = LogManager.getLogger();
     private final SearchRequestOperationsListener searchRequestOperationsListener;
     private long absoluteStartNanos;
     private final Map<String, Long> phaseTookMap;
