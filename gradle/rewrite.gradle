@@ -49,9 +49,18 @@ allprojects {
       rewrite("org.openrewrite.recipe:rewrite-rewrite:0.9.0")
       rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.12.0")
     }
-    tasks {
-      rewriteDryRun {
-        dependsOn(check)
+    if (System.getenv("rewriteDogFoodCloud")) {
+      tasks {
+        rewriteDryRun {
+          dependsOn(check)
+        }
+      }
+    }
+    if (System.getenv("rewriteDogFoodDev")) {
+      tasks {
+        rewriteRun {
+          dependsOn(assemble)
+        }
       }
     }
   }
