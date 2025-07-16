@@ -73,6 +73,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Fix Replication lag computation ([#18602](https://github.com/opensearch-project/OpenSearch/pull/18602))
 - Fix max_score is null when sorting on score firstly ([#18715](https://github.com/opensearch-project/OpenSearch/pull/18715))
 - Fixed Staggered merge -  load average replace with AverageTrackers, some Default thresholds modified ([#18666](https://github.com/opensearch-project/OpenSearch/pull/18666))
+- Fix spotless implementation of removeWildcardImports ([#18770](https://github.com/opensearch-project/OpenSearch/pull/18770))
 
 ### Security
 
