@@ -57,8 +57,10 @@ allprojects {
           dependsOn(assemble)
         }
       }
-      rewriteDryRun {
-        dependsOn(check)
+      if (!getenv("skipDogFood")) {
+        rewriteDryRun {
+          dependsOn(check)
+        }
       }
     }
   }
