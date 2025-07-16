@@ -81,8 +81,10 @@ allprojects {
           dependsOn(assemble)
         }
       }
-      spotlessJavaCheck {
-        dependsOn(check)
+      if (!getenv("skipDogFood")) {
+        spotlessJavaCheck {
+          dependsOn(check)
+        }
       }
     }
   }
