@@ -74,16 +74,15 @@ allprojects {
         endWithNewline()
       }
     }
-    precommit.dependsOn 'spotlessJavaCheck'
     tasks {
       if (getenv("dogFoodDev")) {
-        spotlessJavaApply {
-          dependsOn(assemble)
+        assemble {
+          dependsOn(spotlessJavaApply)
         }
       }
       if (!getenv("skipDogFood")) {
-        spotlessJavaCheck {
-          dependsOn(check)
+        check {
+          dependsOn(spotlessJavaCheck)
         }
       }
     }

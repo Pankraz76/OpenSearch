@@ -53,13 +53,13 @@ allprojects {
     }
     tasks {
       if (getenv("dogFoodDev")) {
-        rewriteRun {
-          dependsOn(assemble)
+        assemble {
+          dependsOn(rewriteRun)
         }
       }
       if (!getenv("skipDogFood")) {
-        rewriteDryRun {
-          dependsOn(check)
+        check {
+          dependsOn(rewriteDryRun)
         }
       }
     }
