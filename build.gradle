@@ -80,9 +80,6 @@ allprojects {
     resolutionStrategy {
       // Force specific versions for conflicting dependencies
       force(
-        'org.jetbrains:annotations:26.0.2',
-        'org.apache.commons:commons-text:1.13.1',
-        'com.fasterxml.jackson:jackson-bom:2.17.3',
         'org.ow2.asm:asm:9.8',
         'org.ow2.asm:asm-util:9.8',
         'org.ow2.asm:asm-tree:9.8',
