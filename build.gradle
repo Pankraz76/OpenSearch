@@ -76,9 +76,8 @@ allprojects {
   description = "OpenSearch subproject ${project.path}"
 }
 allprojects {
-  configurations.all {
+  configurations.configureEach {
     resolutionStrategy {
-      // Force specific versions for conflicting dependencies
       force(
         'org.jetbrains:annotations:26.0.2',
         'org.apache.commons:commons-text:1.13.1',
