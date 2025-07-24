@@ -100,8 +100,7 @@ allprojects {
       }
     }
     dependencies {
-      rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.13.0")
-      rewrite("org.openrewrite.recipe:rewrite-third-party:0.24.3")
+      rewrite("org.openrewrite.recipe:rewrite-third-party:0.24.3", "org.openrewrite.recipe:rewrite-static-analysis:2.13.0")
     }
     rewrite {
       activeRecipe(
