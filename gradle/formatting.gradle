@@ -91,7 +91,7 @@ allprojects {
 
     dependencies {
       rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.13.0")
-      rewrite("org.openrewrite.recipe:rewrite-third-party:0.25.0")
+//      rewrite("org.openrewrite.recipe:rewrite-third-party:0.25.0")
 
       constraints {
         rewrite('org.jetbrains:annotations') {
@@ -154,7 +154,7 @@ allprojects {
         "org.openrewrite.java.format.RemoveTrailingWhitespace",
         "org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods",
         "org.openrewrite.text.EndOfLineAtEndOfFile",
-        "tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes"
+        //"tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes"
       )
       exclusions.add("**simple-bulk11.json")
       exclusions.add("**simple-msearch5.json")
