@@ -104,10 +104,10 @@ allprojects {
     }
     rewrite {
       activeRecipe(
+        "org.openrewrite.gradle.GradleBestPractices",
+        "org.openrewrite.java.RemoveUnusedImports",
         "tech.picnic.errorprone.refasterrules.StringRulesRecipes",
-        //"org.openrewrite.gradle.GradleBestPractices",
         //"org.openrewrite.java.OrderImports",
-        //"org.openrewrite.java.RemoveUnusedImports",
         //"org.openrewrite.java.format.RemoveTrailingWhitespace",
         //"org.openrewrite.java.migrate.UpgradeToJava17",
         //"org.openrewrite.java.migrate.util.MigrateCollectionsSingletonList",
