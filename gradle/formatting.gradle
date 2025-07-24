@@ -67,6 +67,7 @@ allprojects {
     project.apply plugin: "org.openrewrite.rewrite"
     dependencies {
       rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.12.0")
+      rewrite("org.openrewrite.recipe:rewrite-third-party:0.24.3")
     }
     spotless {
       java {
@@ -105,10 +106,12 @@ allprojects {
     }
     rewrite {
       activeRecipe(
+        "org.openrewrite.gradle.GradleBestPractices",
         "org.openrewrite.java.RemoveUnusedImports",
         "org.openrewrite.java.format.RemoveTrailingWhitespace",
         "org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods",
-        "org.openrewrite.text.EndOfLineAtEndOfFile"
+        "org.openrewrite.text.EndOfLineAtEndOfFile",
+        "tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes"
       )
       exclusions.add("**simple-bulk11.json")
       exclusions.add("**simple-msearch5.json")
@@ -127,7 +130,7 @@ allprojects {
     }
     precommit.dependsOn(rewriteDryRun, spotlessJavaCheck)
     tasks.check.dependsOn(rewriteDryRun, spotlessJavaCheck) // off switch for release: ' -x check' or ' -x rewriteDryRun spotlessJavaCheck'
-    if (valueOf(getenv("formatting")) // on switch for dev to auto apply Dformatting ' -Dformatting=true'
+    if (valueOf(getenv("formatting")) // on switch for dev to auto apply formatting ' -Dformatting=true'
       && isNull(getenv("JENKINS_URL"))) { // avoid CI
       tasks.assemble.dependsOn(rewriteRun, spotlessApply)
     }
