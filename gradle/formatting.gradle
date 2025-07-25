@@ -101,13 +101,20 @@ allprojects {
     }
     dependencies {
       rewrite("org.openrewrite.recipe:rewrite-third-party:0.24.3")
+      api("org.jboss.resteasy:resteasy-jackson2-provider:${versions.resteasy}") {
+        exclude module: 'jakarta.activation-api'
+        exclude group: 'com.fasterxml.jackson'
+        exclude group: 'com.fasterxml.jackson.core'
+        exclude group: 'com.fasterxml.jackson.dataformat'
+        exclude group: 'com.fasterxml.jackson.module'
+      }
     }
     rewrite {
       activeRecipe(
-        "org.openrewrite.gradle.GradleBestPractices",
-        "tech.picnic.errorprone.refasterrules.StringRulesRecipes",
+        //"org.openrewrite.gradle.GradleBestPractices",
+        //"tech.picnic.errorprone.refasterrules.StringRulesRecipes",
+        "org.openrewrite.java.RemoveUnusedImports",
         //"org.openrewrite.java.OrderImports",
-        //"org.openrewrite.java.RemoveUnusedImports",
         //"org.openrewrite.java.format.RemoveTrailingWhitespace",
         //"org.openrewrite.java.migrate.UpgradeToJava17",
         //"org.openrewrite.java.migrate.util.MigrateCollectionsSingletonList",
