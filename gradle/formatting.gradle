@@ -35,38 +35,64 @@ import static java.lang.System.getenv
 import static java.util.Objects.isNull
 import static java.util.Objects.nonNull
 
-/*
- * This script plugin configures formatting for Java source using Spotless
- * for Gradle. Since the act of formatting existing source can interfere
- * with developers' workflows, we don't automatically format all code
- * (yet). Instead, we maintain a list of projects that are excluded from
- * formatting, until we reach a point where we can comfortably format them
- * in one go without too much disruption.
- *
- * Any new sub-projects must not be added to the exclusions list!
- *
- * To perform a reformat, run:
- *
- *     ./gradlew rewriteRun spotlessApply
- *
- * To check the current format, run:
- *
- *     ./gradlew rewriteDryRun spotlessJavaCheck
- *
- * This is also carried out by the `precommit` task.
- *
- * For more about Spotless, see:
- *
- * https://github.com/diffplug/spotless/tree/master/plugin-gradle
- */
-
 allprojects {
   plugins.withType(BuildPlugin).whenPluginAdded {
     project.apply plugin: "com.diffplug.spotless"
     project.apply plugin: "org.openrewrite.rewrite"
+
+    // Configuration to resolve all dependency conflicts
+    configurations.all {
+      resolutionStrategy {
+        // Force OpenRewrite versions
+        force "org.openrewrite:rewrite-core:8.59.1"
+        force "org.openrewrite:rewrite-java:8.59.1"
+        force "org.openrewrite:rewrite-properties:8.59.1"
+        force "org.openrewrite:rewrite-xml:8.59.1"
+        force "org.openrewrite:rewrite-maven:8.59.1"
+        force "org.openrewrite:rewrite-gradle:8.59.1"
+        force "org.openrewrite:rewrite-groovy:8.59.1"
+        force "org.openrewrite:rewrite-java-17:8.59.1"
+
+        // Force Reactor versions
+        force "io.projectreactor:reactor-core:3.8.0-M5"
+        force "io.projectreactor.addons:reactor-adapter:3.6.0-RC3"
+        force "io.projectreactor.addons:reactor-extra:3.6.0-RC3"
+        force "io.projectreactor:reactor-test:3.8.0-M5"
+
+        // Force ASM versions
+        force "org.ow2.asm:asm:9.8"
+        force "org.ow2.asm:asm-util:9.8"
+        force "org.ow2.asm:asm-tree:9.8"
+
+        // Force Jackson versions
+        force "com.fasterxml.jackson:jackson-bom:2.17.3"
+        force "com.fasterxml.jackson.core:jackson-annotations:2.17.3"
+        force "com.fasterxml.jackson.core:jackson-core:2.17.3"
+        force "com.fasterxml.jackson.core:jackson-databind:2.17.3"
+        force "com.fasterxml.jackson.dataformat:jackson-dataformat-smile:2.17.3"
+        force "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.17.3"
+        force "com.fasterxml.jackson.dataformat:jackson-dataformat-csv:2.17.3"
+        force "com.fasterxml.jackson.module:jackson-module-parameter-names:2.17.3"
+        force "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.3"
+        force "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.17.3"
+
+        // Force other common dependency versions
+        force "org.jetbrains:annotations:26.0.2"
+        force "io.micrometer:micrometer-core:1.14.7"
+        force "org.apache.commons:commons-lang3:3.18.0"
+        force "org.apache.commons:commons-text:1.13.1"
+        force "io.github.classgraph:classgraph:4.8.181"
+        force "org.slf4j:slf4j-api:2.0.6"
+        force "org.apache.httpcomponents:httpcore:4.4.16"
+        force "commons-codec:commons-codec:1.17.1"
+        force "com.google.errorprone:error_prone_annotations:2.36.0"
+        force "jakarta.activation:jakarta.activation-api:2.1.3"
+      }
+    }
+
     spotless {
       java {
-        target '.gitignore', '**/*.java' // config because of java sources in non-standard places
+        target '.gitignore', '**/*.java'
         importOrder(
           'de.thetaphi',
           'com.carrotsearch',
@@ -85,71 +111,71 @@ allprojects {
         eclipse()
           .withP2Mirrors(Map.of("https://download.eclipse.org/", "https://mirror.umd.edu/eclipse/"))
           .configFile(rootProject.file('buildSrc/formatterConfig.xml'))
-        // https://github.com/diffplug/spotless/pull/2557
-        // removeWildcardImports()
+
         custom 'Refuse wildcard imports', {
-          // Wildcard imports can't be resolved; fail the build
           if (it =~ /\s+import .*\*;/) {
-            throw new AssertionError("Do not use wildcard imports.  'spotlessApply' cannot resolve this issue.")
+            throw new AssertionError("Do not use wildcard imports. 'spotlessApply' cannot resolve this issue.")
           }
         }
-        // See DEVELOPER_GUIDE.md for details of when to enable this.
+
         if (nonNull(System.getProperty('spotless.paddedcell'))) {
           paddedCell()
         }
       }
     }
+
     dependencies {
+      // Add dependency constraints to prevent version conflicts
+      constraints {
+        implementation('org.jetbrains:annotations') {
+          version { strictly '26.0.2' }
+        }
+        implementation('org.openrewrite:rewrite-core') {
+          version { strictly '8.59.1' }
+        }
+        implementation('com.fasterxml.jackson.core:jackson-databind') {
+          version { strictly '2.17.3' }
+        }
+        implementation('io.projectreactor:reactor-core') {
+          version { strictly '3.8.0-M5' }
+        }
+        implementation('org.apache.commons:commons-text') {
+          version { strictly '1.13.1' }
+        }
+      }
+
       rewrite("org.openrewrite.recipe:rewrite-third-party:0.24.3")
+
       api("org.jboss.resteasy:resteasy-jackson2-provider:${versions.resteasy}") {
         exclude module: 'jakarta.activation-api'
-        exclude group: 'com.fasterxml.jackson'
-        exclude group: 'com.fasterxml.jackson.core'
-        exclude group: 'com.fasterxml.jackson.dataformat'
-        exclude group: 'com.fasterxml.jackson.module'
+        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-annotations'
+        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
+        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-databind'
+        exclude group: 'com.fasterxml.jackson.dataformat', module: 'jackson-dataformat-smile'
+        exclude group: 'com.fasterxml.jackson.module', module: 'jackson-module-parameter-names'
+        exclude group: 'com.fasterxml.jackson.dataformat', module: 'jackson-dataformat-xml'
+        exclude group: 'com.fasterxml.jackson.dataformat', module: 'jackson-dataformat-csv'
+        exclude group: 'com.fasterxml.jackson.datatype', module: 'jackson-datatype-jsr310'
+        exclude group: 'com.fasterxml.jackson.datatype', module: 'jackson-datatype-jdk8'
       }
     }
+
     rewrite {
       activeRecipe(
-        //"org.openrewrite.gradle.GradleBestPractices",
-        //"tech.picnic.errorprone.refasterrules.StringRulesRecipes",
-        "org.openrewrite.java.RemoveUnusedImports",
-        //"org.openrewrite.java.OrderImports",
-        //"org.openrewrite.java.format.RemoveTrailingWhitespace",
-        //"org.openrewrite.java.migrate.UpgradeToJava17",
-        //"org.openrewrite.java.migrate.util.MigrateCollectionsSingletonList",
-        //"org.openrewrite.java.migrate.util.MigrateCollectionsUnmodifiableList",
-        //"org.openrewrite.java.recipes.JavaRecipeBestPractices",
-        //"org.openrewrite.java.recipes.RecipeNullabilityBestPractices",
-        //"org.openrewrite.java.recipes.RecipeTestingBestPractices",
-        //"org.openrewrite.staticanalysis.CodeCleanup",
-        //"org.openrewrite.staticanalysis.EmptyBlock",
-        //"org.openrewrite.staticanalysis.EqualsAvoidsNull",
-        //"org.openrewrite.staticanalysis.JavaApiBestPractices",
-        //"org.openrewrite.staticanalysis.MissingOverrideAnnotation",
-        //"org.openrewrite.staticanalysis.ModifierOrder",
-        //"org.openrewrite.staticanalysis.NoFinalizer",
-        //"org.openrewrite.staticanalysis.RemoveCallsToSystemGc",
-        //"org.openrewrite.staticanalysis.RemoveUnneededAssertion",
-        //"org.openrewrite.staticanalysis.RemoveUnusedLocalVariables",
-        //"org.openrewrite.staticanalysis.RemoveUnusedPrivateFields",
-        //"org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods",
-        //"org.openrewrite.staticanalysis.StringLiteralEquality",
-        //"org.openrewrite.staticanalysis.UnnecessaryParentheses",
-        //"org.openrewrite.staticanalysis.UnnecessaryThrows",
-        //"org.openrewrite.text.EndOfLineAtEndOfFile",
-        //"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes",
-        //"tech.picnic.errorprone.refasterrules.FileRulesRecipes",
-        //"tech.picnic.errorprone.refasterrules.NullRulesRecipes",
-        //"tech.picnic.errorprone.refasterrules.StreamRulesRecipes",
+        "org.openrewrite.java.RemoveUnusedImports"
       )
-      exclusions.add("**simple-bulk11.json")
-      exclusions.add("**simple-msearch5.json")
-      // following are exclude bugs
-      exclusions.add("**SearchAfterIT.java") // https://github.com/openrewrite/rewrite-static-analysis/pull/644
-      exclusions.add("**StarTreeMapper.java") // https://github.com/openrewrite/rewrite-static-analysis/pull/644
+
+      // File exclusions
+      exclusions.addAll([
+        "**simple-bulk11.json",
+        "**simple-msearch5.json",
+        "**SearchAfterIT.java",
+        "**StarTreeMapper.java"
+      ])
+
       exportDatatables = true
       failOnDryRunResults = true
+
       plainTextMask(
         "**.gradle",
         "**.json",
@@ -158,10 +184,13 @@ allprojects {
         "**.yml"
       )
     }
+
+    // Task configurations
     precommit.dependsOn(rewriteDryRun, spotlessJavaCheck)
-    tasks.check.dependsOn(rewriteDryRun, spotlessJavaCheck) // off switch for release: ' -x check' or ' -x rewriteDryRun spotlessJavaCheck'
-    if (valueOf(getenv("formatting")) // on switch for dev to auto apply formatting ' -Dformatting=true'
-      && isNull(getenv("JENKINS_URL"))) { // avoid CI
+    tasks.check.dependsOn(rewriteDryRun, spotlessJavaCheck)
+
+    // Auto-formatting configuration
+    if (valueOf(getenv("formatting")) && isNull(getenv("JENKINS_URL"))) {
       tasks.assemble.dependsOn(rewriteRun, spotlessApply)
     }
   }
