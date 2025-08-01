@@ -20,10 +20,7 @@ project.apply plugin: "org.openrewrite.rewrite"
 rewrite {
     activeRecipe(
             "tech.picnic.errorprone.refasterrules.BugCheckerRulesRecipes",
-            "tech.picnic.errorprone.refasterrules.FileRulesRecipes",
-            "tech.picnic.errorprone.refasterrules.MicrometerRulesRecipes",
             "tech.picnic.errorprone.refasterrules.SuggestedFixRulesRecipes",
-            "tech.picnic.errorprone.refasterrules.TimeRulesRecipes",
             //"org.apache.kafka.openrewrite.java.AddLicenseHeader", https://github.com/openrewrite/rewrite/issues/5762
             //"org.openrewrite.java.RemoveUnusedImports",
             //"org.openrewrite.java.migrate.UpgradeToJava17",
@@ -48,7 +45,9 @@ rewrite {
             //"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes",
             //"tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes",
             //"tech.picnic.errorprone.refasterrules.EqualityRulesRecipes",
+            //"tech.picnic.errorprone.refasterrules.FileRulesRecipes",
             //"tech.picnic.errorprone.refasterrules.JUnitRulesRecipes",
+            //"tech.picnic.errorprone.refasterrules.MicrometerRulesRecipes",
             //"tech.picnic.errorprone.refasterrules.NullRulesRecipes",
             //"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes",
             //"tech.picnic.errorprone.refasterrules.PatternRulesRecipes",
@@ -56,6 +55,7 @@ rewrite {
             //"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes",
             //"tech.picnic.errorprone.refasterrules.StreamRulesRecipes",
             //"tech.picnic.errorprone.refasterrules.StringRulesRecipes",
+            //"tech.picnic.errorprone.refasterrules.TimeRulesRecipes",
     )
     exportDatatables = true
     exclusions.add("**.GarbageCollectedMemoryPoolTest.java")
