@@ -25,5 +25,5 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
         shell: bash
         run: |
-          ./gradlew rewriteDryRun --build-cache --info -x test
-#         ./gradlew rewriteDryRun --build-cache --info -x test --parallel
+          ./gradlew rewriteDryRun --build-cache --info
+#         ./gradlew rewriteDryRun --build-cache --info --parallel
