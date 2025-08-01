@@ -2,7 +2,7 @@ name: Gradle rewrite
 on: [pull_request]
 
 jobs:
-  precommit:
+  rewriteDryRun:
     if: github.repository == 'opensearch-project/OpenSearch'
     runs-on: ${{ matrix.os }}
     strategy:
