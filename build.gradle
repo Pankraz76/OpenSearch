@@ -51,7 +51,7 @@ plugins {
   id 'lifecycle-base'
   id 'opensearch.docker-support'
   id 'opensearch.global-build-info'
-  id "com.diffplug.spotless" version "6.25.0" apply false
+  id "com.diffplug.spotless" version "7.2.1" apply false
   id "org.gradle.test-retry" version "1.6.2" apply false
   id "org.openrewrite.rewrite" version "7.12.1" apply false
   id "test-report-aggregation"
@@ -63,6 +63,7 @@ apply from: 'gradle/runtime-jdk-provision.gradle'
 apply from: 'gradle/ide.gradle'
 apply from: 'gradle/forbidden-dependencies.gradle'
 apply from: 'gradle/formatting.gradle'
+apply from: 'gradle/rewrite.gradle'
 apply from: 'gradle/local-distribution.gradle'
 apply from: 'gradle/run.gradle'
 apply from: 'gradle/missing-javadoc.gradle'
