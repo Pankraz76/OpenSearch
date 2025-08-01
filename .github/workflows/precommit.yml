@@ -26,3 +26,9 @@ jobs:
         shell: bash
         run: |
           ./gradlew javadoc precommit --parallel
+      - name: Run Gradle (rewriteDryRun)
+        continue-on-error: ${{ matrix.experimental }}
+        shell: bash
+        #--parallel
+        run: |
+          ./gradlew rewriteDryRun --build-cache --info -x test
