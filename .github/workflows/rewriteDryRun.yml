@@ -1,4 +1,4 @@
-name: Gradle rewrite
+name: Gradle rewriteDryRun
 on: [pull_request]
 
 jobs:
@@ -25,5 +25,4 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
         shell: bash
         run: |
-          ./gradlew rewriteDryRun --build-cache --info
-#         ./gradlew rewriteDryRun --build-cache --info --parallel
+          ./gradlew rewriteDryRun --parallel
