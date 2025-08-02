@@ -25,4 +25,4 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
         shell: bash
         run: |
-          ./gradlew gradle/rewrite-init.gradle rewriteDryRun --init-script --parallel
+          ./gradlew --init-script gradle/rewrite-init.gradle rewriteDryRun --parallel
