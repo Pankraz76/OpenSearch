@@ -55,7 +55,7 @@ import org.opensearch.gradle.BuildPlugin
  * https://github.com/diffplug/spotless/tree/master/plugin-gradle
  */
 
-apply from: "$rootDir/gradle/rewrite.gradle"
+apply from: 'gradle/rewrite.gradle'
 
 allprojects {
   plugins.withType(BuildPlugin).whenPluginAdded {
