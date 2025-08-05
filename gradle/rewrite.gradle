@@ -18,10 +18,7 @@
 project.apply plugin: "org.openrewrite.rewrite"
 
 rewrite {
-  activeRecipe(
-    "tech.picnic.errorprone.refasterrules.SuggestedFixRulesRecipes",
-    "tech.picnic.errorprone.refasterrules.BugCheckerRulesRecipes",
-  )
+  activeRecipe("tech.picnic.errorprone.refasterrules.SuggestedFixRulesRecipes")
   exportDatatables = true
   exclusions.add("**.GarbageCollectedMemoryPoolTest.java")
   exclusions.add("**.MetadataVersionTest.java")
