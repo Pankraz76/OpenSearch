@@ -18,7 +18,7 @@
 project.apply plugin: "org.openrewrite.rewrite"
 
 rewrite {
-  activeRecipe("tech.picnic.errorprone.refasterrules.SuggestedFixRulesRecipes")
+  activeRecipe("org.openrewrite.java.RemoveUnusedImports")
   exportDatatables = true
   exclusions.add("**.GarbageCollectedMemoryPoolTest.java")
   exclusions.add("**.MetadataVersionTest.java")
@@ -26,6 +26,5 @@ rewrite {
 }
 
 dependencies {
-  rewrite("org.openrewrite.recipe:rewrite-third-party")
   rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:latest.release"))
 }
