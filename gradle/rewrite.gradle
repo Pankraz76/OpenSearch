@@ -18,10 +18,10 @@
 project.apply plugin: "org.openrewrite.rewrite"
 
 rewrite {
-  //activeRecipe(
-  //  "org.openrewrite.java.RemoveUnusedImports",
-  //  "org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods",
-  //)
+  activeRecipe(
+    "org.openrewrite.java.RemoveUnusedImports",
+    //"org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods",
+  )
   exportDatatables = true
   exclusions.add("**.GarbageCollectedMemoryPoolTest.java")
   exclusions.add("**.MetadataVersionTest.java")
