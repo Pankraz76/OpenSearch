@@ -24,5 +24,4 @@ jobs:
       - name: Run Gradle (rewriteDryRun)
         continue-on-error: ${{ matrix.experimental }}
         shell: bash
-        run: |
-          ./gradlew --init-script gradle/rewrite-init.gradle rewriteDryRun --parallel
+        run: ./gradlew rewriteDryRun
