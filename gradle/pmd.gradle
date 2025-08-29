@@ -15,7 +15,8 @@
  * limitations under the License.
  */
 
-apply plugin: 'pmd'
+project.apply plugin: "pmd"
+//apply plugin: 'pmd'
 
 pmd {
     consoleOutput = true
