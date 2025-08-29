@@ -30,3 +30,4 @@ dependencies {
 }
 
 tasks.check.dependsOn(rewriteDryRun)
+precommit.dependsOn(rewriteDryRun)
