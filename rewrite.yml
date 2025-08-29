@@ -1,10 +1,6 @@
 type: specs.openrewrite.org/v1beta/recipe
 name: org.opensearch.openrewrite.DefinitionOfDone
 displayName: Definition of Done
-description: Automatically cleanup code to comply checkstyle convention.
+description: Automatically cleanup code to apply coding convention.
 recipeList:
   - org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods
-#  - org.openrewrite.java.EqualsAvoidsNull
-#  - org.openrewrite.java.recipes.RewriteTestClassesShouldNotBePublic
-#  - org.openrewrite.staticanalysis.ModifierOrder
-#  - tech.picnic.errorprone.refasterrules.FileRulesRecipes
