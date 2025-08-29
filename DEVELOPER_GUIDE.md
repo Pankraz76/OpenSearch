@@ -319,14 +319,17 @@ For example, we have an hdfs test that uses mini-hdfs to test our repository-hdf
 
 ## Java Language Formatting Guidelines
 
-Java files in the OpenSearch codebase are formatted with the Eclipse JDT formatter, using the [Spotless Gradle](https://github.com/diffplug/spotless/tree/master/plugin-gradle) plugin. This plugin is configured on a project-by-project basis, via `build.gradle` in the root of the repository.
+Java files in the OpenSearch codebase are formatted with the Eclipse JDT formatter, using the [Spotless Gradle](https://github.com/diffplug/spotless/tree/master/plugin-gradle) plugin. This plugin is configured on a project-by-project basis, via `build.gradle` in the root of the repository. So long as at least one project is configured, the formatting check can be run explicitly with:
 
-- As long only one project is configured, the formatting check can be run explicitly with:
-  - `./gradlew spotlessJavaCheck`
-- The code can be formatted with:
-  - `./gradlew spotlessApply`
-- These tasks can also be run for specific subprojects, e.g.
-  - `./gradlew server:spotlessJavaCheck`
+    ./gradlew spotlessJavaCheck
+
+The code can be formatted with:
+
+    ./gradlew spotlessApply
+
+These tasks can also be run for specific subprojects, e.g.
+
+    ./gradlew server:spotlessJavaCheck
 
 Please follow these formatting guidelines:
 
