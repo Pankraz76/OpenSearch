@@ -29,4 +29,4 @@ dependencies {
   rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.15.0")
 }
 
-//tasks.check.dependsOn(rewriteDryRun)
+//tasks.check.dependsOn(rewriteDryRun -Dorg.gradle.jvmargs=-Xmx4G)

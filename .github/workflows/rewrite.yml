@@ -25,5 +25,5 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
         shell: bash
         timeout-minutes: 120
-        run: ./gradlew rewriteDryRun
+        run: ./gradlew rewriteDryRun -Dorg.gradle.jvmargs=-Xmx4G
         # https://docs.openrewrite.org/reference/faq#im-getting-javalangoutofmemoryerror-java-heap-space-when-running-openrewrite
