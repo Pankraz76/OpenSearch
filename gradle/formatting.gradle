@@ -44,9 +44,13 @@ import org.opensearch.gradle.BuildPlugin
  *
  *     ./gradlew spotlessApply
  *
+ *     ./gradlew rewriteRun
+ *
  * To check the current format, run:
  *
  *     ./gradlew spotlessJavaCheck
+ *
+ *     ./gradlew rewriteDryRun
  *
  * This is also carried out by the `precommit` task.
  *
@@ -112,6 +116,7 @@ allprojects {
       }
 
       precommit.dependsOn 'spotlessJavaCheck'
+      tasks.check.dependsOn(spotlessJavaCheck)
   }
 }
 
