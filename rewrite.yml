@@ -3,4 +3,5 @@ name: org.opensearch.openrewrite.DefinitionOfDone
 displayName: Definition of Done
 description: Automatically cleanup code to apply coding convention.
 recipeList:
+  - org.openrewrite.gradle.GradleBestPractices
   - org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods
