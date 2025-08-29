@@ -56,6 +56,7 @@ import org.opensearch.gradle.BuildPlugin
  */
 
 apply from: 'gradle/rewrite.gradle'
+apply from: 'gradle/pmd.gradle'
 
 allprojects {
   plugins.withType(BuildPlugin).whenPluginAdded {
