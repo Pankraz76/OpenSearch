@@ -25,4 +25,3 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
         shell: bash
         run: ./gradlew dependencyCheckAnalyze
-        timeout-minutes: 120
