@@ -54,8 +54,6 @@ final class SystemJvmOptions {
                 "-Dopensearch.networkaddress.cache.negative.ttl=10",
                 // pre-touch JVM emory pages during initialization
                 "-XX:+AlwaysPreTouch",
-                // explicitly set the stack size
-                "-Xss1m",
                 // set to headless, just in case,
                 "-Djava.awt.headless=true",
                 // ensure UTF-8 encoding by default (e.g., filenames)
