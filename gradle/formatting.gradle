@@ -111,3 +111,20 @@ allprojects {
       precommit.dependsOn 'spotlessJavaCheck'
   }
 }
+
+project.apply plugin: "org.openrewrite.rewrite"
+
+rewrite {
+  activeRecipe("org.opensearch.openrewrite.DefinitionOfDone")
+  exclusion("**SearchAfterIT.java")
+  exclusion("**StarTreeMapper.java")
+  setExportDatatables(true)
+  setFailOnDryRunResults(true)
+}
+
+dependencies {
+  rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.15.0")
+}
+
+tasks.check.dependsOn(rewriteDryRun)
+//precommit.dependsOn 'spotlessJavaCheck'
