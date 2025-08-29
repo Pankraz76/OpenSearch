@@ -26,8 +26,5 @@ rewrite {
 }
 
 dependencies {
-  rewrite("org.openrewrite.recipe:rewrite-rewrite:0.12.0")
   rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.15.0")
-  rewrite("org.openrewrite.recipe:rewrite-third-party:0.26.0")
-  rewrite(platform("org.openrewrite.recipe:rewrite-recipe-bom:3.12.1"))
 }
