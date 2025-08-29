@@ -128,4 +128,4 @@ dependencies {
 
 tasks.check.dependsOn(rewriteDryRun)
 tasks.check.dependsOn(dependencyCheckAnalyze)
-//precommit.dependsOn 'spotlessJavaCheck'
+precommit.dependsOn 'dependencyCheckAnalyze22'
