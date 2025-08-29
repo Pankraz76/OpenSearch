@@ -364,9 +364,9 @@ The OpenSearch build system supports **automated, large-scale code transformatio
 
 - **Apply transformations:**
     - Full project:
-      - `./gradlew rewriteRun`
+      - `./gradlew rewriteRun -Dorg.gradle.jvmargs=-Xmx4G`
     - Subproject:
-      - `./gradlew server:rewriteRun`
+      - `./gradlew server:rewriteRun -Dorg.gradle.jvmargs=-Xmx4G`
 ---
 ### 🛠️ Example Transformations
 
