@@ -21,7 +21,7 @@ jobs:
           java-version: ${{ matrix.java }}
           distribution: temurin
           cache: gradle
-      - name: Run PMD
+      - name: Run Gradle (PMD)
         continue-on-error: ${{ matrix.experimental }}
         shell: bash
         run: ./gradlew pmdMain
