@@ -55,10 +55,12 @@ import org.opensearch.gradle.BuildPlugin
  * https://github.com/diffplug/spotless/tree/master/plugin-gradle
  */
 
+project.apply plugin: "org.openrewrite.rewrite"
+project.apply plugin: "org.owasp.dependencycheck"
+project.apply plugin: "com.diffplug.spotless"
+
 allprojects {
   plugins.withType(BuildPlugin).whenPluginAdded {
-      project.apply plugin: "com.diffplug.spotless"
-
       spotless {
         java {
           // Normally this isn't necessary, but we have Java sources in
@@ -112,8 +114,6 @@ allprojects {
   }
 }
 
-project.apply plugin: "org.openrewrite.rewrite"
-
 rewrite {
   activeRecipe("org.opensearch.openrewrite.DefinitionOfDone")
   exclusion("**SearchAfterIT.java")
@@ -127,4 +127,5 @@ dependencies {
 }
 
 tasks.check.dependsOn(rewriteDryRun)
+tasks.check.dependsOn(dependencyCheckAnalyze)
 //precommit.dependsOn 'spotlessJavaCheck'
