@@ -1,8 +1,8 @@
-name: Gradle rewrite
+name: Gradle owasp
 on: [pull_request]
 
 jobs:
-  rewrite:
+  owasp:
     if: github.repository == 'opensearch-project/OpenSearch'
     runs-on: ${{ matrix.os }}
     strategy:
@@ -21,8 +21,8 @@ jobs:
           java-version: ${{ matrix.java }}
           distribution: temurin
           cache: gradle
-      - name: Run Gradle (rewrite)
+      - name: Run Gradle (owasp)
         continue-on-error: ${{ matrix.experimental }}
         shell: bash
-        run: ./gradlew rewriteDryRun
+        run: ./gradlew dependencyCheckAnalyze
         timeout-minutes: 120
