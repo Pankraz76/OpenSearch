@@ -354,14 +354,22 @@ The OpenSearch build system supports **automated, large-scale code transformatio
 - **Dependency Upgrades** (e.g., automatic migration when updating library versions)
 
 ### ⚙️ Usage
-- **Dry-run (check changes without applying):**
-    - Full project: `./gradlew  rewriteDryRun -Dorg.gradle.jvmargs=-Xmx6G`
-    - Subproject (e.g., `server`): `./gradlew server: rewriteDryRun -Dorg.gradle.jvmargs=-Xmx6G`
-- **Apply transformations:**
-    - Full project: `./gradlew rewriteRun -Dorg.gradle.jvmargs=-Xmx6G`
-    - Subproject: `./gradlew server:rewriteRun -Dorg.gradle.jvmargs=-Xmx6G`
 
+- **Dry-run (check for changes):**
+    - Full project:
+      - `./gradlew  rewriteDryRun -Dorg.gradle.jvmargs=-Xmx6G`
+    - Subproject (e.g., `server`):
+      - `./gradlew server: rewriteDryRun -Dorg.gradle.jvmargs=-Xmx6G`
+---
+
+- **Apply transformations:**
+    - Full project:
+      - `./gradlew rewriteRun -Dorg.gradle.jvmargs=-Xmx6G`
+    - Subproject:
+      - `./gradlew server:rewriteRun -Dorg.gradle.jvmargs=-Xmx6G`
+---
 ### 🛠️ Example Transformations
+
 | **Before**                     | **After**                          | **Rule**                          |
 |--------------------------------|------------------------------------|-----------------------------------|
 | `new ArrayList<String>()`      | `new ArrayList<>()`                | Diamond Operator (Java 7+)        |
@@ -369,6 +377,7 @@ The OpenSearch build system supports **automated, large-scale code transformatio
 | `@Test public void testFoo()`  | `@Test void foo()`                 | JUnit 5 Convention                |
 
 ### ⚠️ Notes
+
 - **Custom Rules**: Add project-specific rewrites in `code-convention.yml`.
 - **Exclusions**: Use `// rewrite:off` and `// rewrite:on` to opt out of transformations for specific code blocks.
 - **PR Reviews**: Automated rewrites are flagged in CI. Verify changes match intent before merging.
