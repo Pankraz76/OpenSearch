@@ -358,16 +358,16 @@ The OpenSearch build system supports **automated, large-scale code transformatio
 
 - **Dry-run (check for changes):**
     - Full project:
-      - `./gradlew  rewriteDryRun -Dorg.gradle.jvmargs=-Xmx4g`
+      - `./gradlew  rewriteDryRun -Dorg.gradle.jvmargs=-Xmx4g --parallel`
     - Subproject (e.g., `server`):
-      - `./gradlew server: rewriteDryRun -Dorg.gradle.jvmargs=-Xmx4g`
+      - `./gradlew server: rewriteDryRun -Dorg.gradle.jvmargs=-Xmx4g --parallel`
 ---
 
 - **Apply transformations:**
     - Full project:
-      - `./gradlew rewriteRun -Dorg.gradle.jvmargs=-Xmx4g`
+      - `./gradlew rewriteRun -Dorg.gradle.jvmargs=-Xmx4g --parallel`
     - Subproject:
-      - `./gradlew server:rewriteRun -Dorg.gradle.jvmargs=-Xmx4g`
+      - `./gradlew server:rewriteRun -Dorg.gradle.jvmargs=-Xmx4g --parallel`
 ---
 ### 🛠️ Example Transformations
 
