@@ -25,4 +25,4 @@ jobs:
         continue-on-error: ${{ matrix.experimental }}
         shell: bash
         run: ./gradlew rewriteDryRun
-        timeout-minutes: 120 # dependency lookup alone takes 15 mins
+        timeout-minutes: 120 # dependency lookup takes 15 mins
