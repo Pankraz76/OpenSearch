@@ -111,6 +111,8 @@ allprojects {
       }
 
       precommit.dependsOn 'spotlessJavaCheck'
+      precommit.dependsOn 'dependencyCheckAnalyze'
+      precommit.dependsOn 'rewriteDryRun'
   }
 }
 
@@ -128,4 +130,3 @@ dependencies {
 
 tasks.check.dependsOn(rewriteDryRun)
 tasks.check.dependsOn(dependencyCheckAnalyze)
-precommit.dependsOn 'dependencyCheckAnalyze22'
