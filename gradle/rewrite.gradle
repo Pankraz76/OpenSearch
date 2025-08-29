@@ -18,7 +18,7 @@
 project.apply plugin: "org.openrewrite.rewrite"
 
 rewrite {
-  activeRecipe("com.github.spotbugs.openrewrite.DefinitionOfDone")
+  activeRecipe("org.opensearch.openrewrite.DefinitionOfDone")
   exclusion("**SearchAfterIT.java")
   exclusion("**StarTreeMapper.java")
   setExportDatatables(true)
