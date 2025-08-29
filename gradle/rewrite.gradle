@@ -29,4 +29,8 @@ dependencies {
   rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.15.0")
 }
 
-//tasks.check.dependsOn(rewriteDryRun -Dorg.gradle.jvmargs=-Xmx4G)
+tasks.check.dependsOn(rewriteDryRun)
+
+tasks.rewriteDryRun {
+  maxHeapSize = "4g"
+}
