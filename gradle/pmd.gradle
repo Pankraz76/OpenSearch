@@ -23,4 +23,4 @@ pmd {
     toolVersion = "7.16.0"
 }
 
-tasks.check.dependsOn("pmdMain")
+//tasks.check.dependsOn("pmdMain")

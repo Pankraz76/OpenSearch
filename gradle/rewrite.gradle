@@ -28,3 +28,5 @@ rewrite {
 dependencies {
   rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.15.0")
 }
+
+tasks.check.dependsOn(rewriteDryRun)
