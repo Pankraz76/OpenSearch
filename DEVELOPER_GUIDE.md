@@ -353,6 +353,7 @@ The OpenSearch build system supports **automated, large-scale code transformatio
 - **Convention Enforcement** (e.g., consistent JUnit test naming, `final` keyword usage)
 - **Dependency Upgrades** (e.g., automatic migration when updating library versions)
 
+
 ### ⚙️ Usage
 
 - **Dry-run (check for changes):**
@@ -381,6 +382,7 @@ The OpenSearch build system supports **automated, large-scale code transformatio
 - **Custom Rules**: Add project-specific rewrites in `code-convention.yml`.
 - **Exclusions**: Use `// rewrite:off` and `// rewrite:on` to opt out of transformations for specific code blocks.
 - **PR Reviews**: Automated rewrites are flagged in CI. Verify changes match intent before merging.
+- **javalangoutofmemoryerror**: https://docs.openrewrite.org/reference/faq#im-getting-javalangoutofmemoryerror-java-heap-space-when-running-openrewrite
 
 ## Adding Dependencies
 
