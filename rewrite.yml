@@ -3,7 +3,8 @@ name: com.github.spotbugs.openrewrite.DefinitionOfDone
 displayName: Definition of Done
 description: Automatically cleanup code to comply checkstyle convention.
 recipeList:
-  - org.openrewrite.java.EqualsAvoidsNull
-  - org.openrewrite.java.recipes.RewriteTestClassesShouldNotBePublic
-  - org.openrewrite.staticanalysis.ModifierOrder
-  - tech.picnic.errorprone.refasterrules.FileRulesRecipes
+  - org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods
+#  - org.openrewrite.java.EqualsAvoidsNull
+#  - org.openrewrite.java.recipes.RewriteTestClassesShouldNotBePublic
+#  - org.openrewrite.staticanalysis.ModifierOrder
+#  - tech.picnic.errorprone.refasterrules.FileRulesRecipes
