@@ -130,6 +130,12 @@ rewrite {
   setFailOnDryRunResults(true)
 }
 
+pmd {
+  consoleOutput = true
+  ruleSetFiles = files("${rootDir}/gradle/pmd.xml")
+  toolVersion = "7.16.0"
+}
+
 dependencies {
   rewrite("org.openrewrite.recipe:rewrite-static-analysis:2.15.0")
 }
