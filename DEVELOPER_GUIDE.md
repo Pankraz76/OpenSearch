@@ -358,6 +358,60 @@ Please follow these formatting guidelines:
 * Note that JavaDoc and block comments i.e. `/* ... */` are not formatted, but line comments i.e `// ...` are.
 * There is an implicit rule that negative boolean expressions should use the form `foo == false` instead of `!foo` for better readability of the code. While this isn't strictly enforced, it might get called out in PR reviews as something to change.
 
+## PMD
+
+As a quick alternative to rewrite, it's quick scanning locally. Build being part of pre-commit executed (optionally) locally but definitely on CI.
+
+### ⚙️ Usage
+
+- **pmdMain (check for compliance):**
+    - Full project:
+        - `./gradlew pmdMain`
+    - Subproject (e.g., `server`):
+        - `./gradlew server:pmdMain`
+- **Apply needed transformations by leveraging rewrite, please see below**
+
+## Rewrite
+*(Advanced Refactoring, Modernization, and Bulk Code Changes)*
+
+The OpenSearch build system supports **automated, large-scale code transformations** using [Moderne](https://moderne.io/) and OpenRewrite. These tools enable:
+
+- **Safe Refactoring** (e.g., renaming methods, migrating deprecated APIs)
+- **Modernization** (e.g., adopting Java 17 features like `var`, `records`, or `switch` expressions)
+- **Anti-Pattern Fixes** (e.g., replacing `Vector` with `ArrayList`, removing redundant `StringBuilder`)
+- **Convention Enforcement** (e.g., consistent JUnit test naming, `final` keyword usage)
+- **Dependency Upgrades** (e.g., automatic migration when updating library versions)
+
+### ⚙️ Usage
+
+- **Dry-run (check for changes):**
+    - Full project:
+      - `./gradlew rewriteDryRun -Dorg.gradle.jvmargs=-Xmx8G`
+    - Subproject (e.g., `server`):
+      - `./gradlew server:rewriteDryRun -Dorg.gradle.jvmargs=-Xmx8G`
+---
+
+- **Apply transformations:**
+    - Full project:
+      - `./gradlew rewriteRun -Dorg.gradle.jvmargs=-Xmx8G`
+    - Subproject:
+      - `./gradlew server:rewriteRun -Dorg.gradle.jvmargs=-Xmx8G`
+---
+### 🛠️ Example Transformations
+
+| **Before**                     | **After**                          | **Rule**                          |
+|--------------------------------|------------------------------------|-----------------------------------|
+| `new ArrayList<String>()`      | `new ArrayList<>()`                | Diamond Operator (Java 7+)        |
+| `if (x == false)`              | `if (!x)`                          | Boolean Simplification            |
+| `@Test public void testFoo()`  | `@Test void foo()`                 | JUnit 5 Convention                |
+
+### ⚠️ Notes
+
+- **Custom Rules**: Add project-specific rewrites in `code-convention.yml`.
+- **Exclusions**: Use `// rewrite:off` and `// rewrite:on` to opt out of transformations for specific code blocks.
+- **PR Reviews**: Automated rewrites are flagged in CI. Verify changes match intent before merging.
+- **javalangoutofmemoryerror**: https://docs.openrewrite.org/reference/faq#im-getting-javalangoutofmemoryerror-java-heap-space-when-running-openrewrite
+
 ## Adding Dependencies
 
 When adding a new dependency or removing an existing dependency via any `build.gradle` (that are not in the test scope), update the dependency LICENSE and library SHAs.
