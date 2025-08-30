@@ -61,6 +61,7 @@ import org.opensearch.gradle.BuildPlugin
 
 project.apply plugin: "org.openrewrite.rewrite"
 project.apply plugin: "org.owasp.dependencycheck"
+//project.apply plugin: "pmd"
 
 allprojects {
   plugins.withType(BuildPlugin).whenPluginAdded {
@@ -118,7 +119,7 @@ allprojects {
 
       precommit.dependsOn 'spotlessJavaCheck'
       tasks.check.dependsOn(spotlessJavaCheck)
-//      tasks.check.dependsOn(pmdMain)
+      tasks.check.dependsOn(pmdMain)
   }
 }
 
