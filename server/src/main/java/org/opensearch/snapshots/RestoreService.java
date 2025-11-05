@@ -99,15 +99,7 @@ import org.opensearch.repositories.RepositoriesService;
 import org.opensearch.repositories.Repository;
 import org.opensearch.repositories.RepositoryData;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -912,6 +904,7 @@ public class RestoreService implements ClusterStateApplier {
                         long totalRestoredRemoteIndexesSize = shardsIterator.getShardRoutings()
                             .stream()
                             .map(clusterInfo::getShardSize)
+                            .filter(Objects::nonNull)
                             .mapToLong(Long::longValue)
                             .sum();
 
@@ -925,7 +918,13 @@ public class RestoreService implements ClusterStateApplier {
                             );
                         }
                     }
-
+// opensearch-master-nodes-0 opensearch-master-nodes 	at java.base/java.util.stream.LongPipeline.sum(LongPipeline.java:460) ~[?:?]
+//opensearch-master-nodes-0 opensearch-master-nodes 	at org.opensearch.snapshots.RestoreService$1.validateSearchableSnapshotRestorable(RestoreService.java:916) ~[opensearch-3.3.1.jar:3.3.1]
+//opensearch-master-nodes-0 opensearch-master-nodes 	at org.opensearch.snapshots.RestoreService$1.execute(RestoreService.java:588) ~[opensearch-3.3.1.jar:3.3.1]
+//opensearch-master-nodes-0 opensearch-master-nodes 	at org.opensearch.cluster.ClusterStateUpdateTask.execute(ClusterStateUpdateTask.java:67) ~[opensearch-3.3.1.jar:3.3.1]
+//opensearch-master-nodes-0 opensearch-master-nodes 	at org.opensearch.cluster.service.ClusterManagerService.executeTasks(ClusterManagerService.java:890) ~[opensearch-3.3.1.jar:3.3.1]
+//opensearch-master-nodes-0 opensearch-master-nodes 	at org.opensearch.cluster.service.ClusterManagerService.calculateTaskOutputs(ClusterManagerService.java:441) ~[opensearch-3.3.1.jar:3.3.1]
+//opensearch-master-nodes-0 opensearch-master-nodes 	at org.opensearch.cluster.service.ClusterManagerService.runTasks(ClusterManagerService.java:301) [opensearch-3.3.1.j
                     @Override
                     public void onFailure(String source, Exception e) {
                         logger.warn(() -> new ParameterizedMessage("[{}] failed to restore snapshot", snapshotId), e);
